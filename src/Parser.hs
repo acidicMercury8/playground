@@ -12,4 +12,12 @@ sumParse = do
   second <- integer
   return (first + second)
 
+incrParse :: Parser Integer
+incrParse = do
+  first <- integer
+  reservedOp "++"
+  return (first + 1)
+
 runSumParse = parse sumParse "<stdin>"
+
+runIncrParse = parse incrParse "<stdin>"

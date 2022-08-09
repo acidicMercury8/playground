@@ -8,7 +8,7 @@ import qualified Text.Parsec.Token as Tok
 lexer :: Tok.TokenParser ()
 lexer = Tok.makeTokenParser style
   where
-    operators = ["+", "*", "-", "/"]
+    operators = ["++", "+", "*", "-", "/"]
     names = ["if", "else"]
     style =
       emptyDef
