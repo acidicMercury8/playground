@@ -1,6 +1,10 @@
 module Main where
 
-import Lib
+import Lib (runSumParse)
 
 main :: IO ()
-main = someFunc
+main = do
+  line <- getLine
+  case runSumParse line of
+    Right result -> putStrLn ("Result: " ++ show result)
+    Left error -> print error
