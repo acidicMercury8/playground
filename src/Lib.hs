@@ -1,4 +1,9 @@
-module Lib where
+module Lib
+  ( runSumParse
+  )
+  where
 
-import Lexer
+import Lexer ()
 import Parser
+  ( runSumParse
+  )
