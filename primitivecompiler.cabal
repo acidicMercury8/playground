@@ -27,6 +27,7 @@ library
   exposed-modules:
       Lexer
       Lib
+      Parser
   other-modules:
       Paths_primitivecompiler
   hs-source-dirs:
