@@ -1,14 +1,14 @@
-name:                PrimitiveCompiler
+name:                primitivecompiler
 version:             0.1.0.0
-github:              "githubuser/PrimitiveCompiler"
-license:             BSD3
-author:              "Author name here"
-maintainer:          "example@example.com"
-copyright:           "2022 Author name here"
+github:              "acidicMercury8/compiler-workshop-haskell"
+license:             MIT
+author:              "acidicMercury8"
+maintainer:          "acidicmercury8@outlook.com"
+copyright:           "2022 acidicMercury8"
 
 extra-source-files:
 - README.md
-- ChangeLog.md
+- CHANGELOG.md
 
 # Metadata used when publishing your package
 # synopsis:            Short description of your package
@@ -17,7 +17,7 @@ extra-source-files:
 # To avoid duplicated efforts in documentation and dealing with the
 # complications of embedding Haddock markup inside cabal files, it is
 # common to point users to the README.md file.
-description:         Please see the README on GitHub at <https://github.com/githubuser/PrimitiveCompiler#readme>
+description:         Please see the README on GitHub at <https://github.com/acidicMercury8/compiler-workshop-haskell#readme>
 
 dependencies:
 - base >= 4.7 && < 5
@@ -26,7 +26,7 @@ library:
   source-dirs: src
 
 executables:
-  PrimitiveCompiler-exe:
+  primitivecompiler-exe:
     main:                Main.hs
     source-dirs:         app
     ghc-options:
@@ -34,10 +34,10 @@ executables:
     - -rtsopts
     - -with-rtsopts=-N
     dependencies:
-    - PrimitiveCompiler
+    - primitivecompiler
 
 tests:
-  PrimitiveCompiler-test:
+  primitivecompiler-test:
     main:                Spec.hs
     source-dirs:         test
     ghc-options:
@@ -45,4 +45,4 @@ tests:
     - -rtsopts
     - -with-rtsopts=-N
     dependencies:
-    - PrimitiveCompiler
+    - primitivecompiler
