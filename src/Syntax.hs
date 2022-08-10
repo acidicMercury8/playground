@@ -1,6 +1,6 @@
 module Syntax where
 
-import StringHelpers
+import StringHelpers ( joinC )
 
 type Name = String
 
