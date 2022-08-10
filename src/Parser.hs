@@ -1,27 +1,27 @@
 module Parser where
 
-import Control.Applicative ( (<$>) )
-import Data.Maybe ( fromMaybe )
-import Text.Parsec ( (<|>), many, try, optionMaybe )
-import Text.Parsec.String ( Parser )
+import Control.Applicative ((<$>))
+import Data.Maybe (fromMaybe)
+import Text.Parsec (eof, many, optionMaybe, try, (<|>))
+import Text.Parsec.String (Parser)
 
 import qualified Text.Parsec.Expr as Ex
 import qualified Text.Parsec.Token as Tok
 
 import Lexer
-    ( integer,
-      parens,
-      braces,
-      commaSep,
-      identifier,
-      whitespace,
-      reserved,
-      reservedOp,
-      operator )
-import Syntax
-    ( ExprType(CallableType, IntType, FloatType, VoidType, BytesType,
-               AutoType),
-      Expr(..) )
+  ( braces,
+    commaSep,
+    float,
+    identifier,
+    integer,
+    lexer,
+    operator,
+    parens,
+    reserved,
+    reservedOp,
+    whitespace,
+  )
+import Syntax (Expr (..), ExprType (..))
 
 op :: Parser String
 op = do
@@ -71,6 +71,9 @@ exprType =
 int :: Parser Expr
 int = Int <$> integer
 
+floating :: Parser Expr
+floating = Float <$> float
+
 variable :: Parser Expr
 variable = Var <$> identifier
 
@@ -81,13 +84,16 @@ definition = do
   Def varType <$> identifier
 
 codeBlock :: Parser [Expr]
-codeBlock = braces $ many $
-  do e <- expr
-     reserved ";"
-     return e
+codeBlock = braces $
+  many $
+    do
+      e <- expr
+      reserved ";"
+      return e
 
 block :: Parser Expr
 block = Block <$> codeBlock
+
 function :: Parser Expr
 function = do
   funcType <- exprType
@@ -122,12 +128,40 @@ ifelse = do
     codeBlock
   return $ If cond tr (fromMaybe [] fl)
 
+while :: Parser Expr
+while = do
+  reserved "while"
+  cond <- parens expr
+  While cond <$> codeBlock
+
+cast :: Parser Expr
+cast = do
+  castedT <- parens exprType
+  TypeCast castedT <$> expr
+
 factor :: Parser Expr
-factor = try block
-  <|> try function
-  <|> try int
-  <|> try call
-  <|> try definition
-  <|> try variable
-  <|> try ifelse
-  <|> parens expr
+factor =
+  try cast
+    <|> try block
+    <|> try function
+    <|> try floating
+    <|> try int
+    <|> try call
+    <|> try definition
+    <|> try variable
+    <|> try ifelse
+    <|> try while
+    <|> parens expr
+
+contents :: Parser a -> Parser a
+contents p = do
+  Tok.whiteSpace lexer
+  r <- p
+  eof
+  return r
+
+toplevel :: Parser [Expr]
+toplevel = many $ do
+  def <- function
+  reservedOp ";"
+  return def
