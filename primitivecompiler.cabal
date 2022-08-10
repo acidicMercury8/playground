@@ -28,13 +28,18 @@ library
       Lexer
       Lib
       Parser
+      StringHelpers
+      Syntax
+      SyntaxHelpers
   other-modules:
       Paths_primitivecompiler
   hs-source-dirs:
       src
   build-depends:
       base >=4.7 && <5
+    , bytestring
     , parsec
+    , utf8-string
   default-language: Haskell2010
 
 executable primitivecompiler-exe

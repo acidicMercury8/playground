@@ -26,6 +26,8 @@ library:
   source-dirs: src
   dependencies:
   - parsec
+  - bytestring
+  - utf8-string
 
 executables:
   primitivecompiler-exe:
