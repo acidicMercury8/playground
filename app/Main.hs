@@ -1,16 +1,17 @@
 module Main where
 
-import Lib (runIncrParse, runSumParse)
+import System.Environment ( getArgs )
+
+import Lib ( joinedPrettyAST, parseCode )
 
 main :: IO ()
 main = do
-  putStrLn "Enter an expression like <integer_number_1>+<integer_number_2>"
-  lineSum <- getLine
-  case runSumParse lineSum of
-    Right result -> putStrLn ("Result: " ++ show result)
-    Left error -> print error
-  putStrLn "Enter an expression like <integer_number>++"
-  lineIncr <- getLine
-  case runIncrParse lineIncr of
-    Right result -> putStrLn ("Result: " ++ show result)
-    Left error -> print error
+  args <- getArgs
+  case args of
+    [] -> putStrLn "Provide file name!"
+    [filename] -> do
+      code <- readFile filename
+      case parseCode code of
+        Left err -> print err
+        Right ast -> putStrLn (joinedPrettyAST ast)
+    _ -> putStrLn "Provide one file name!"
