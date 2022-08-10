@@ -1,11 +1,12 @@
 module Lib
-  ( runSumParse
-  , runIncrParse
+  ( joinedPrettyAST
+  , parseCode
   )
   where
 
 import Lexer ()
-import Parser
-  ( runSumParse
-  , runIncrParse
-  )
+import Parser ()
+import ParserHelpers ( parseCode )
+import StringHelpers ()
+import Syntax ()
+import SyntaxHelpers ( joinedPrettyAST )

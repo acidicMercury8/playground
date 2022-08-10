@@ -2,7 +2,7 @@
 
 module SyntaxHelpers where
 
-import Data.Char (isSpace)
+import Data.Char ( isSpace )
 
 import Syntax
   ( CodeBlock,
