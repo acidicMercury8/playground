@@ -23,7 +23,7 @@ toplevel = many $ do
     return def
 
 parseExpr :: String -> Either ParseError Expr
-parseExpr s = parse (contents expr) "<stdin>" s
+parseExpr = parse (contents expr) "<stdin>"
 
 parseCode :: String -> Either ParseError AST
-parseCode s = parse (contents toplevel) "<stdin>" s
+parseCode = parse (contents toplevel) "<stdin>"

@@ -36,7 +36,7 @@ joinedPrettyAST :: Pretty e => [e] -> String
 joinedPrettyAST = joinN . prettifyAST
 
 instance Pretty e => Pretty (CodeBlock e) where
-  prettify exprs = concatMap tabExpr exprs
+  prettify = concatMap tabExpr
     where
       tabExpr e = map (" " ++) (prettify e)
 

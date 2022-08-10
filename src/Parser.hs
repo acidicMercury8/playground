@@ -30,12 +30,13 @@ op = do
   whitespace
   return o
 
-binary s assoc = Ex.Infix (reservedOp s >> return (BinaryOp s)) assoc
+binary s = Ex.Infix (reservedOp s >> return (BinaryOp s))
 
 opList arity = opList'
   where
     opList' [op] = [arity op Ex.AssocLeft]
     opList' (op : ops) = arity op Ex.AssocLeft : opList' ops
+    opList' [] = []
 
 binList = opList binary
 
@@ -77,8 +78,7 @@ definition :: Parser Expr
 definition = do
   varType <- exprType
   whitespace
-  varName <- identifier
-  return $ Def varType varName
+  Def varType <$> identifier
 
 codeBlock :: Parser [Expr]
 codeBlock = braces $ many $
@@ -95,8 +95,7 @@ function = do
   args <- parens $ commaSep definition
   mReturns <- optionMaybe $ do
     reserved "returns"
-    id <- identifier
-    return id
+    identifier
   body <- do
     reserved "="
     block <- optionMaybe codeBlock
@@ -120,16 +119,15 @@ ifelse = do
   tr <- codeBlock
   fl <- optionMaybe $ do
     reserved "else"
-    code <- codeBlock
-    return code
+    codeBlock
   return $ If cond tr (fromMaybe [] fl)
- 
+
 factor :: Parser Expr
 factor = try block
-      <|> try function
-      <|> try int
-      <|> try call
-      <|> try definition
-      <|> try variable
-      <|> try ifelse
-      <|> parens expr
+  <|> try function
+  <|> try int
+  <|> try call
+  <|> try definition
+  <|> try variable
+  <|> try ifelse
+  <|> parens expr
