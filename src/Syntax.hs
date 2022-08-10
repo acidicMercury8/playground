@@ -43,4 +43,23 @@ data Expr
 class Show e => Pretty e where
   prettify :: e -> [String]
 
+data TypedExpr = TypedExpr ExprType TExpr
+  deriving (Eq, Ord, Show)
+
+data TExpr
+  = TInt Integer
+  | TFloat Double
+  | TVar Name
+  | TDef Name
+  | TBlock (CodeBlock TypedExpr)
+  | TCall String [TypedExpr]
+  | TFunction Name [Name] (CodeBlock TypedExpr)
+  | TBinaryOp String TypedExpr TypedExpr
+  | TUnaryOp String TypedExpr
+  | TIf TypedExpr (CodeBlock TypedExpr) (CodeBlock TypedExpr)
+  | TWhile TypedExpr (CodeBlock TypedExpr)
+  deriving (Eq, Ord, Show)
+
 type AST = [Expr]
+
+type TAST = [TypedExpr]
