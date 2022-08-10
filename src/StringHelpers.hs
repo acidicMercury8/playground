@@ -2,9 +2,9 @@
 
 module StringHelpers where
 
-import Data.ByteString ( ByteString )
-import Data.ByteString.Short ( ShortByteString, toShort )
-import Data.List ( intercalate )
+import Data.ByteString (ByteString)
+import Data.ByteString.Short (ShortByteString, toShort)
+import Data.List (intercalate)
 
 import qualified Data.ByteString as BS
 import qualified Data.ByteString.UTF8 as BSU
