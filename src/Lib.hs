@@ -1,12 +1,18 @@
 module Lib
-  ( joinedPrettyAST
-  , parseCode
+  ( showE,
+    ppAST,
+    processAST,
+    parseCode,
+    joinN,
   )
-  where
+where
 
+import AST.Errors (showE)
+import AST.Helpers (ppAST)
+import AST.Processor (processAST)
 import Lexer ()
 import Parser ()
-import ParserHelpers ( parseCode )
-import StringHelpers ()
+import ParserHelpers (parseCode)
+import StringHelpers (joinN)
 import Syntax ()
-import SyntaxHelpers ( joinedPrettyAST )
+import SyntaxHelpers ()
