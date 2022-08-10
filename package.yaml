@@ -28,6 +28,7 @@ library:
   - parsec
   - bytestring
   - utf8-string
+  - containers
 
 executables:
   primitivecompiler-exe:
