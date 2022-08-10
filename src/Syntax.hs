@@ -1,10 +1,13 @@
 module Syntax where
 
-import StringHelpers ( joinC )
+import StringHelpers (joinC)
 
 type Name = String
 
 type CodeBlock term = [term]
+
+class Show e => Pretty e where
+  prettify :: e -> [String]
 
 data ExprType
   = VoidType
@@ -30,18 +33,19 @@ instance Show ExprType where
   show AutoType = "auto"
 
 data Expr
-  = Int Integer
+  = TypeCast ExprType Expr
+  | Int Integer
+  | Float Double
   | Var Name
   | Def ExprType Name
   | Block (CodeBlock Expr)
   | Call String [Expr]
   | Function ExprType Name [Expr] (Maybe Name) (CodeBlock Expr)
   | BinaryOp String Expr Expr
+  | UnaryOp String Expr
   | If Expr (CodeBlock Expr) (CodeBlock Expr)
+  | While Expr (CodeBlock Expr)
   deriving (Eq, Ord, Show)
-
-class Show e => Pretty e where
-  prettify :: e -> [String]
 
 data TypedExpr = TypedExpr ExprType TExpr
   deriving (Eq, Ord, Show)
