@@ -28,6 +28,7 @@ library
       Lexer
       Lib
       Parser
+      ParserHelpers
       StringHelpers
       Syntax
       SyntaxHelpers
