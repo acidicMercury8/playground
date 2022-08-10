@@ -2,21 +2,33 @@ module Lexer where
 
 import Text.Parsec.Language (emptyDef)
 import Text.Parsec.String (Parser)
+import Text.Parsec.Prim (many)
 
 import qualified Text.Parsec.Token as Tok
 
 lexer :: Tok.TokenParser ()
 lexer = Tok.makeTokenParser style
   where
-    operators = ["++", "+", "*", "-", "/"]
-    names = ["if", "else"]
+    ops =
+      [ "+", "*", "-", "/"
+      , "//", "%"
+      , "<", ">", ">=", "<="
+      , "==", "!="
+      , ";", "=", ",", "->"
+      ]
+    names =
+      [ "if", "else"
+      , "while", "for"
+      , "returns"
+      , "@target", "@args"
+      ]
     style =
       emptyDef
         { Tok.commentLine = "//",
           Tok.commentStart = "/*",
           Tok.commentEnd = "*/",
           Tok.caseSensitive = True,
-          Tok.reservedOpNames = operators,
+          Tok.reservedOpNames = ops,
           Tok.reservedNames = names
         }
 
@@ -30,3 +42,9 @@ identifier = Tok.identifier lexer
 whitespace = Tok.whiteSpace lexer
 reserved = Tok.reserved lexer
 reservedOp = Tok.reservedOp lexer
+
+operator :: Parser String
+operator = do
+  c <- Tok.opStart emptyDef
+  cs <- many $ Tok.opLetter emptyDef
+  return (c:cs)
