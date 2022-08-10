@@ -1,17 +1,41 @@
+{-# LANGUAGE ViewPatterns #-}
+
 module Main where
 
-import System.Environment ( getArgs )
+import Data.List (intersect)
+import System.Environment (getArgs)
 
-import Lib ( joinedPrettyAST, parseCode )
+import Lib
+  ( joinN,
+    parseCode,
+    ppAST,
+    processAST,
+    showE,
+  )
 
-main :: IO ()
+debugFlag = ["--debug", "-d"]
+
+parseArgs :: [String] -> ([String], String)
+parseArgs (reverse -> (filename : args)) = (args, filename)
+
 main = do
   args <- getArgs
   case args of
     [] -> putStrLn "Provide file name!"
-    [filename] -> do
+    args -> do
       code <- readFile filename
       case parseCode code of
         Left err -> print err
-        Right ast -> putStrLn (joinedPrettyAST ast)
-    _ -> putStrLn "Provide one file name!"
+        Right ast -> do
+          actionFor debugFlag (ppAST ast >> putStrLn "")
+          let maybeTAST = processAST ast
+          case maybeTAST of
+            Right errors -> putStrLn $ joinN (map showE errors)
+            Left tast -> ppAST tast
+      return ()
+      where
+        (flags, filename) = parseArgs args
+        actionFor key action =
+          if not (null (key `intersect` flags))
+            then action
+            else pure ()
