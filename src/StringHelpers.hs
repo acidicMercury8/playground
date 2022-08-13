@@ -24,8 +24,11 @@ addToLast (reverse -> s : ss) str = reverse ss ++ [s ++ str]
 addToLast [] _ = []
 addToLast _ _ = []
 
+joinS :: [String] -> String
 joinS = unwords
 
+joinN :: [[Char]] -> [Char]
 joinN = intercalate "\n"
 
+joinC :: [[Char]] -> [Char]
 joinC = intercalate ", "

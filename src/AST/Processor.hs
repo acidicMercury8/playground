@@ -5,6 +5,7 @@ import AST.Helpers (extractFuncRet)
 import AST.Typing (annotateTypes)
 import Syntax (AST, Expr (..), TAST)
 
+use :: [t -> t] -> t -> t
 use [] x = x
 use [f] x = f x
 use (f : fs) x = use fs (f x)
@@ -22,8 +23,10 @@ walkAST m = map (process m)
 process :: (Expr -> Expr) -> Expr -> Expr
 process m expr = m (process' m expr)
 
+mapP :: (Expr -> Expr) -> [Expr] -> [Expr]
 mapP m = map (process m)
 
+process' :: (Expr -> Expr) -> Expr -> Expr
 process' m (Block codeBlock) = Block (walkAST m codeBlock)
 process' m (Call name args) = Call name (mapP m args)
 process' m (Function t n args r body) = Function t n (mapP m args) r (walkAST m body)
@@ -32,6 +35,7 @@ process' m (UnaryOp op e) = UnaryOp op (process m e)
 process' m (If cond brT brF) = If (process m cond) (walkAST m brT) (walkAST m brF)
 process' m e = e
 
+desugarFunctions :: AST -> AST
 desugarFunctions =
   walkAST
     ( \expr -> case expr of
@@ -39,6 +43,7 @@ desugarFunctions =
         _ -> expr
     )
 
+desugarFunc :: Expr -> Expr
 desugarFunc func@(Function t n a r body) =
   Function t n a Nothing $ case extractFuncRet func of
     Nothing -> body

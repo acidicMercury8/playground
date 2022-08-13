@@ -1,7 +1,8 @@
 module Lexer where
 
+import Data.Functor.Identity (Identity)
 import Text.Parsec.Language (emptyDef)
-import Text.Parsec.Prim (many)
+import Text.Parsec.Prim (many, ParsecT)
 import Text.Parsec.String (Parser)
 
 import qualified Text.Parsec.Token as Tok
@@ -46,24 +47,34 @@ lexer = Tok.makeTokenParser style
           Tok.reservedNames = names
         }
 
+integer :: ParsecT String () Identity Integer
 integer = Tok.integer lexer
 
+float :: ParsecT String () Identity Double
 float = Tok.float lexer
 
+parens :: ParsecT String () Identity a -> ParsecT String () Identity a
 parens = Tok.parens lexer
 
+braces :: ParsecT String () Identity a -> ParsecT String () Identity a
 braces = Tok.braces lexer
 
+commaSep :: ParsecT String () Identity a -> ParsecT String () Identity [a]
 commaSep = Tok.commaSep lexer
 
+semiSep :: ParsecT String () Identity a -> ParsecT String () Identity [a]
 semiSep = Tok.semiSep lexer
 
+identifier :: ParsecT String () Identity String
 identifier = Tok.identifier lexer
 
+whitespace :: ParsecT String () Identity ()
 whitespace = Tok.whiteSpace lexer
 
+reserved :: String -> ParsecT String () Identity ()
 reserved = Tok.reserved lexer
 
+reservedOp :: String -> ParsecT String () Identity ()
 reservedOp = Tok.reservedOp lexer
 
 operator :: Parser String

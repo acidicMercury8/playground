@@ -17,6 +17,7 @@ import Syntax
     Pretty (..),
     TExpr (..),
     TypedExpr (..),
+    ExprType
   )
 
 joinOrSplit :: Pretty a => [String] -> a -> [String]
@@ -58,8 +59,10 @@ instance Pretty Expr where
     (If eq bl1 bl2) -> addToLast (joinOrSplit ["If"] eq) " {" ++ prettify bl1 ++ ["}", "else {"] ++ prettify bl2 ++ ["}"]
     (While eq bl) -> addToLast (joinOrSplit ["While"] eq) " {" ++ prettify bl ++ ["}"]
 
+typedTuple :: TypedExpr -> (String, TExpr)
 typedTuple (TypedExpr type_ tExpr) = (show type_, tExpr)
 
+tT :: TypedExpr -> (String, TExpr)
 tT = typedTuple
 
 instance Pretty TypedExpr where
@@ -78,8 +81,11 @@ instance Pretty TypedExpr where
     (tT -> (t, TIf eq bl1 bl2)) -> addToLast (joinOrSplit ["If " ++ t] eq) " {" ++ prettify bl1 ++ ["}", "else {"] ++ prettify bl2 ++ ["}"]
     (tT -> (t, TWhile eq bl)) -> addToLast (joinOrSplit ["While " ++ t] eq) " {" ++ prettify bl ++ ["}"]
 
+view :: TypedExpr -> (ExprType, TExpr)
 view (TypedExpr t e) = (t, e)
 
+typeOnly :: TypedExpr -> ExprType
 typeOnly (TypedExpr t _) = t
 
+exprOnly :: TypedExpr -> TExpr
 exprOnly (TypedExpr _ e) = e
