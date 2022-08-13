@@ -18,6 +18,7 @@ debugFlag = ["--debug", "-d"]
 
 parseArgs :: [String] -> ([String], String)
 parseArgs (reverse -> (filename : args)) = (args, filename)
+parseArgs _ = ([], [])
 
 main :: IO ()
 main = do
