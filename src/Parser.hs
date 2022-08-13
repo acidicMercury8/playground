@@ -1,6 +1,7 @@
 module Parser where
 
 import Control.Applicative ((<$>))
+import Data.Functor.Identity (Identity)
 import Data.Maybe (fromMaybe)
 import Text.Parsec (eof, many, optionMaybe, try, (<|>))
 import Text.Parsec.String (Parser)
@@ -30,16 +31,20 @@ op = do
   whitespace
   return o
 
+binary :: String -> Ex.Assoc -> Ex.Operator String () Identity Expr
 binary s = Ex.Infix (reservedOp s >> return (BinaryOp s))
 
+opList :: (t -> Ex.Assoc -> a) -> [t] -> [a]
 opList arity = opList'
   where
     opList' [op] = [arity op Ex.AssocLeft]
     opList' (op : ops) = arity op Ex.AssocLeft : opList' ops
     opList' [] = []
 
+binList :: [String] -> [Ex.Operator String () Identity Expr]
 binList = opList binary
 
+binops :: [[Ex.Operator String () Identity Expr]]
 binops =
   [ binList ["*", "/", "//", "%"],
     binList ["+", "-"],

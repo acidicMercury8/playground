@@ -23,6 +23,7 @@ import SyntaxHelpers ()
 
 type TypeMap = Map Name ExprType
 
+emptyTypeMap :: Map k a
 emptyTypeMap = Map.empty
 
 annotateTypes :: AST -> Either TAST [GTypeError]
@@ -160,11 +161,14 @@ gatherBlocks ast tm = foldl foldBlocks (Left ([], tm)) ast
 gatherTypes :: TAST -> [ExprType]
 gatherTypes = map (\case TypedExpr type_ _ -> type_)
 
+getTypeFrom :: (t -> TypedExpr) -> t -> ExprType
 getTypeFrom getter tast = case getter tast of
   TypedExpr type_ _ -> type_
 
+getHeadType :: [TypedExpr] -> ExprType
 getHeadType = getTypeFrom head
 
+getLastType :: [TypedExpr] -> ExprType
 getLastType = getTypeFrom last
 
 deduceBlock :: CodeBlock Expr -> TypeMap -> Either (TAST, TypeMap) GTypeError
@@ -172,6 +176,7 @@ deduceBlock block tm = case deduceBlock' block tm of
   Right e -> Right e
   Left (bl, newTm) -> Left (fixAutoDefs bl newTm, newTm)
 
+deduceBlock' :: [Expr] -> TypeMap -> Either ([TypedExpr], TypeMap) GTypeError
 deduceBlock' [] tm = Left ([], tm)
 deduceBlock' (expr : exprs) tm = case deduceType expr tm of
   Right e -> Right e
@@ -179,6 +184,7 @@ deduceBlock' (expr : exprs) tm = case deduceType expr tm of
     Right e -> Right e
     Left (tast, newerTm) -> Left (tExpr : tast, newerTm)
 
+fixAutoDefs :: Foldable t => t TypedExpr -> TypeMap -> [TypedExpr]
 fixAutoDefs block tm = foldl replaceAuto [] block
   where
     replaceAuto es nextE = es ++ [e]

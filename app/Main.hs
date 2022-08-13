@@ -13,11 +13,13 @@ import Lib
     showE,
   )
 
+debugFlag :: [String]
 debugFlag = ["--debug", "-d"]
 
 parseArgs :: [String] -> ([String], String)
 parseArgs (reverse -> (filename : args)) = (args, filename)
 
+main :: IO ()
 main = do
   args <- getArgs
   case args of
