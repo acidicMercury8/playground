@@ -39,6 +39,12 @@ indent_size = 2
 indent_style = space
 insert_final_newline = true
 
+# GHCi configs
+[.ghci]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+
 # Visual Studio Code project files
 [{*.code-workspace,.vscode/*.json}]
 charset = utf-8
