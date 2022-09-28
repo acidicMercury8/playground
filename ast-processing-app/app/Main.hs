@@ -3,6 +3,7 @@
 module Main where
 
 import Data.List (intersect)
+import Control.Monad (unless)
 import System.Environment (getArgs)
 
 import Lib
@@ -37,8 +38,5 @@ main = do
             Left tast -> ppAST tast
       return ()
       where
+        actionFor key = unless (null (key `intersect` flags))
         (flags, filename) = parseArgs args
-        actionFor key action =
-          if not (null (key `intersect` flags))
-            then action
-            else pure ()
