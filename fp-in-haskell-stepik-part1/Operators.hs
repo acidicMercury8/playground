@@ -27,6 +27,7 @@ module Operators where
 
 infixl 6 *+*
 
+--(*+*) :: Num a => a -> a -> a
 (*+*) a b = a ^ 2 + b ^ 2
 
 --1 + 3 *+* 2 * 2
@@ -34,6 +35,7 @@ infixl 6 *+*
 --4 *+* 4
 --32
 
+--(|-|) :: (Ord a, Num a) => a -> a -> a
 x |-| y = if x - y >= 0 then x - y else y - x
 
 --(2 /) 4
