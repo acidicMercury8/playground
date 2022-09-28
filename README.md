@@ -1,6 +1,10 @@
-# Compiler Workshop
+# Haskell Playground
 
-Monorepository for research in building compilers in _Haskell_
+Monorepository for research and study _Haskell_ programming language
+
+## Projects
+
+- [AST processing](./ast-processing-app/README.md)
 
 ## License
 
