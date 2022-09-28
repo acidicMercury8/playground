@@ -11,40 +11,25 @@ lexer :: Tok.TokenParser ()
 lexer = Tok.makeTokenParser style
   where
     ops =
-      [ "+",
-        "*",
-        "-",
-        "/",
-        "//",
-        "%",
-        "<",
-        ">",
-        ">=",
-        "<=",
-        "==",
-        "!=",
-        ";",
-        "=",
-        ",",
-        "->"
+      [ "+", "*", "-", "/"
+      , "//", "%"
+      , "<", ">", ">=", "<=", "==", "!="
+      , ";", "=", ",", "->"
       ]
     names =
-      [ "if",
-        "else",
-        "while",
-        "for",
-        "returns",
-        "@target",
-        "@args"
+      [ "if", "else"
+      , "while", "for"
+      , "returns"
+      , "@target", "@args"
       ]
     style =
       emptyDef
-        { Tok.commentLine = "//",
-          Tok.commentStart = "/*",
-          Tok.commentEnd = "*/",
-          Tok.caseSensitive = True,
-          Tok.reservedOpNames = ops,
-          Tok.reservedNames = names
+        { Tok.commentLine = "//"
+        , Tok.commentStart = "/*"
+        , Tok.commentEnd = "*/"
+        , Tok.caseSensitive = True
+        , Tok.reservedOpNames = ops
+        , Tok.reservedNames = names
         }
 
 integer :: ParsecT String () Identity Integer

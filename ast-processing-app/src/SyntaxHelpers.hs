@@ -6,18 +6,18 @@ module SyntaxHelpers where
 import Data.Char (isSpace)
 
 import StringHelpers
-  ( addToLast,
-    joinN,
-    joinS,
+  ( addToLast
+  , joinN
+  , joinS
   )
 
 import Syntax
-  ( CodeBlock,
-    Expr (..),
-    Pretty (..),
-    TExpr (..),
-    TypedExpr (..),
-    ExprType
+  ( CodeBlock
+  , Expr (..)
+  , Pretty (..)
+  , TExpr (..)
+  , TypedExpr (..)
+  , ExprType
   )
 
 joinOrSplit :: Pretty a => [String] -> a -> [String]
@@ -50,13 +50,19 @@ instance Pretty Expr where
     (Var n) -> [joinS ["Var", show n]]
     (Def t n) -> [joinS ["Def", show t, show n]]
     (Block es) -> smartJoin ("Block {" : prettify es ++ ["}"])
-    (Call f es) -> smartJoin (joinS ["Call", show f, "("] : prettify es ++ [")"])
+    (Call f es) -> smartJoin
+      ( joinS ["Call", show f, "("]
+      : prettify es ++ [")"]
+      )
     (Function t n a r body) ->
       joinS ["Function", show n, show t, "; args", show a, "; returns", show r, "{"] :
       prettify body ++ ["}"]
     (BinaryOp op e1 e2) -> joinOrSplit (joinOrSplit ["BinaryOp " ++ op] e1) e2
     (UnaryOp op e) -> joinOrSplit ["UnaryOp " ++ op] e
-    (If eq bl1 bl2) -> addToLast (joinOrSplit ["If"] eq) " {" ++ prettify bl1 ++ ["}", "else {"] ++ prettify bl2 ++ ["}"]
+    (If eq bl1 bl2) ->
+      addToLast (joinOrSplit ["If"] eq) " {" ++
+      prettify bl1 ++ ["}", "else {"] ++
+      prettify bl2 ++ ["}"]
     (While eq bl) -> addToLast (joinOrSplit ["While"] eq) " {" ++ prettify bl ++ ["}"]
 
 typedTuple :: TypedExpr -> (String, TExpr)
@@ -71,15 +77,25 @@ instance Pretty TypedExpr where
     (tT -> (t, TFloat f)) -> [joinS [t, show f]]
     (tT -> (t, TVar v)) -> [joinS ["Var", t, show v]]
     (tT -> (t, TDef d)) -> [joinS ["Def", t, show d]]
-    (tT -> (t, TBlock es)) -> smartJoin (joinS ["Block", t, "{"] : prettify es ++ ["}"])
-    (tT -> (t, TCall f es)) -> smartJoin (joinS ["Call", t, show f, "("] : prettify es ++ [")"])
+    (tT -> (t, TBlock es)) -> smartJoin
+      ( joinS ["Block", t, "{"]
+      : prettify es ++ ["}"]
+      )
+    (tT -> (t, TCall f es)) -> smartJoin
+      ( joinS ["Call", t, show f, "("]
+      : prettify es ++ [")"]
+      )
     (tT -> (t, TFunction n argN body)) ->
       joinS ["Function", t, n, show argN, "{"] :
       prettify body ++ ["}"]
-    (tT -> (t, TBinaryOp op e1 e2)) -> joinOrSplit (joinOrSplit ["BinaryOp " ++ [head t] ++ op] e1) e2
+    (tT -> (t, TBinaryOp op e1 e2)) -> joinOrSplit
+      ( joinOrSplit ["BinaryOp " ++ [head t] ++ op] e1) e2
     (tT -> (t, TUnaryOp op e)) -> joinOrSplit ["UnaryOp " ++ [head t] ++ op] e
-    (tT -> (t, TIf eq bl1 bl2)) -> addToLast (joinOrSplit ["If " ++ t] eq) " {" ++ prettify bl1 ++ ["}", "else {"] ++ prettify bl2 ++ ["}"]
-    (tT -> (t, TWhile eq bl)) -> addToLast (joinOrSplit ["While " ++ t] eq) " {" ++ prettify bl ++ ["}"]
+    (tT -> (t, TIf eq bl1 bl2)) -> addToLast (joinOrSplit ["If " ++ t] eq) " {" ++
+      prettify bl1 ++ ["}", "else {"] ++
+      prettify bl2 ++ ["}"]
+    (tT -> (t, TWhile eq bl)) -> addToLast (joinOrSplit ["While " ++ t] eq) " {" ++
+      prettify bl ++ ["}"]
 
 view :: TypedExpr -> (ExprType, TExpr)
 view (TypedExpr t e) = (t, e)

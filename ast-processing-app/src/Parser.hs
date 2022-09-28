@@ -10,19 +10,22 @@ import qualified Text.Parsec.Expr as Ex
 import qualified Text.Parsec.Token as Tok
 
 import Lexer
-  ( braces,
-    commaSep,
-    float,
-    identifier,
-    integer,
-    lexer,
-    operator,
-    parens,
-    reserved,
-    reservedOp,
-    whitespace,
+  ( braces
+  , commaSep
+  , float
+  , identifier
+  , integer
+  , lexer
+  , operator
+  , parens
+  , reserved
+  , reservedOp
+  , whitespace
   )
-import Syntax (Expr (..), ExprType (..))
+import Syntax
+  ( Expr (..)
+  , ExprType (..)
+  )
 
 op :: Parser String
 op = do
@@ -46,9 +49,9 @@ binList = opList binary
 
 binops :: [[Ex.Operator String () Identity Expr]]
 binops =
-  [ binList ["*", "/", "//", "%"],
-    binList ["+", "-"],
-    binList ["<", "=", "<=", ">=", "==", "!="]
+  [ binList ["*", "/", "//", "%"]
+  , binList ["+", "-"]
+  , binList ["<", "=", "<=", ">=", "==", "!="]
   ]
 
 expr :: Parser Expr
