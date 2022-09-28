@@ -1,9 +1,9 @@
 module Lib
-  ( showE,
-    ppAST,
-    processAST,
-    parseCode,
-    joinN,
+  ( showE
+  , ppAST
+  , processAST
+  , parseCode
+  , joinN
   )
 where
 

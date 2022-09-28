@@ -8,18 +8,19 @@ import qualified Data.Map.Strict as Map
 
 import AST.Errors (GTypeError (..))
 import StringHelpers (joinN)
-import Syntax
-  ( AST,
-    CodeBlock,
-    Expr (..),
-    ExprType (..),
-    Name,
-    Pretty (..),
-    TAST,
-    TExpr (..),
-    TypedExpr (..),
-  )
 import SyntaxHelpers ()
+
+import Syntax
+  ( AST
+  , CodeBlock
+  , Expr (..)
+  , ExprType (..)
+  , Name
+  , Pretty (..)
+  , TAST
+  , TExpr (..)
+  , TypedExpr (..)
+  )
 
 type TypeMap = Map Name ExprType
 

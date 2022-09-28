@@ -6,11 +6,11 @@ import Data.List (intersect)
 import System.Environment (getArgs)
 
 import Lib
-  ( joinN,
-    parseCode,
-    ppAST,
-    processAST,
-    showE,
+  ( joinN
+  , parseCode
+  , ppAST
+  , processAST
+  , showE
   )
 
 debugFlag :: [String]
