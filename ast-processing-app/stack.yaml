@@ -18,6 +18,7 @@
 # resolver: ./custom-snapshot.yaml
 # resolver: https://example.com/snapshots/2018-01-01.yaml
 resolver:
+  # LTS Haskell 19.18 (ghc-9.0.2) - Stackage
   url: https://raw.githubusercontent.com/commercialhaskell/stackage-snapshots/master/lts/19/18.yaml
 
 # User packages to be built.

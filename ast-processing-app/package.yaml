@@ -1,6 +1,6 @@
 name:                primitivecompiler
 version:             0.1.0.0
-github:              "acidicMercury8/compiler-workshop-haskell"
+github:              "acidicMercury8/playground-haskell"
 license:             MIT
 author:              "acidicMercury8"
 maintainer:          "acidicmercury8@outlook.com"
@@ -17,7 +17,7 @@ extra-source-files:
 # To avoid duplicated efforts in documentation and dealing with the
 # complications of embedding Haddock markup inside cabal files, it is
 # common to point users to the README.md file.
-description:         Please see the README on GitHub at <https://github.com/acidicMercury8/compiler-workshop-haskell#readme>
+description:         Please see the README on GitHub at <https://github.com/acidicMercury8/playground-haskell#readme>
 
 dependencies:
 - base >= 4.7 && < 5
