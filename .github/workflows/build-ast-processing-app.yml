@@ -14,16 +14,13 @@ on:
       - 'ast-processing-app/**'
       - '.github/workflows/build-ast-processing-app.yml'
 
-permissions:
-  contents: read
-
 jobs:
-  build-all:
-    name: 'Building'
+  build-stack:
+    name: 'Building with Stack'
 
     strategy:
       matrix:
-        system: [ ubuntu-latest ]
+        system: [ ubuntu-20.04, ubuntu-22.04 ]
         ghc: [ '9.0.2' ]
         stack: [ '2.7.5' ]
 
@@ -45,9 +42,9 @@ jobs:
         uses: actions/cache@v3
         with:
           path: ~/.stack
-          key: ${{ runner.os }}-stack-${{ hashFiles('ast-processing-app/stack.yaml') }}
+          key: ${{ runner.os }}-ghc-${{ matrix.ghc-version }}-stack
           restore-keys: |
-            ${{ runner.os }}-stack-
+            ${{ runner.os }}-ghc-${{ matrix.ghc-version }}-stack
 
       - name: Install dependencies
         run: |
@@ -57,4 +54,11 @@ jobs:
       - name: Build application
         run: |
           stack build
+          stack install --local-bin-path out/
         working-directory: ast-processing-app
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: ast-processing-app-${{ matrix.system }}-${{ matrix.ghc }}-${{ matrix.stack }}
+          path: ast-processing-app/out/
