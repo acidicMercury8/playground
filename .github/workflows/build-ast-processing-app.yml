@@ -4,28 +4,30 @@ on:
   push:
     branches:
       - '**'
-    paths-ignore:
-      - '!ast-processing-app/**'
-      - '!.github/workflows/build-ast-processing-app.yml'
+    paths:
+      - 'ast-processing-app/**'
+      - '.github/workflows/build-ast-processing-app.yml'
   pull_request:
     branches:
       - '**'
-    paths-ignore:
-      - '!ast-processing-app/**'
-      - '!.github/workflows/build-ast-processing-app.yml'
+    paths:
+      - 'ast-processing-app/**'
+      - '.github/workflows/build-ast-processing-app.yml'
 
 permissions:
   contents: read
 
 jobs:
   build-all-cabal:
-    name: 'Building (Cabal)'
+    name: 'Building with Cabal'
 
     strategy:
       matrix:
-        system-images: [ ubuntu-latest ]
+        system: [ ubuntu-latest ]
+        ghc: [ '9.0.2' ]
+        cabal: [ '3.8' ]
 
-    runs-on: ${{ matrix.system-images }}
+    runs-on: ${{ matrix.system }}
 
     steps:
       - name: Checkout
@@ -34,13 +36,10 @@ jobs:
           fetch-depth: 0
 
       - name: Install Haskell
-        uses: actions/setup-haskell@v1
+        uses: haskell/actions/setup@v2
         with:
-          ghc-version: '9.0.2'
-          cabal-version: '3.6'
-
-      - run: |
-          cd ast-processing-app
+          ghc-version: ${{ matrix.ghc }}
+          cabal-version: ${{ matrix.cabal }}
 
       - name: Cache
         uses: actions/cache@v3
@@ -54,10 +53,15 @@ jobs:
             ${{ runner.os }}-build-
             ${{ runner.os }}-
 
+      - name: Prepare build
+        run: |
+          cd ast-processing-app
+          cabal update
+
       - name: Install dependencies
         run: |
-          cabal update
           cabal build --only-dependencies
 
       - name: Build application
-        run: cabal build all
+        run: |
+          cabal build
