@@ -5,6 +5,7 @@ Monorepository for research and study _Haskell_ programming language
 ## Projects
 
 - [AST processing](./ast-processing-app/README.md)
+- [Stepik Haskell Course 1](./fp-in-haskell-stepik-part1/README.md)
 
 ## License
 
