@@ -18,14 +18,14 @@ permissions:
   contents: read
 
 jobs:
-  build-all-cabal:
-    name: 'Building with Cabal'
+  build-all:
+    name: 'Building'
 
     strategy:
       matrix:
         system: [ ubuntu-latest ]
         ghc: [ '9.0.2' ]
-        cabal: [ '3.8' ]
+        stack: [ '2.7.5' ]
 
     runs-on: ${{ matrix.system }}
 
@@ -35,33 +35,36 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Change working directory
+        run: |
+          cd ast-processing-app
+
       - name: Install Haskell
         uses: haskell/actions/setup@v2
         with:
           ghc-version: ${{ matrix.ghc }}
-          cabal-version: ${{ matrix.cabal }}
+          stack-version: ${{ matrix.stack }}
 
-      - name: Cache
+      - name: Cache global
         uses: actions/cache@v3
-        env:
-          cache-name: cache-cabal
         with:
-          path: ~/.cabal
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/*.cabal') }}-${{ hashFiles('**/cabal.project') }}
+          path: ~/.stack
+          key: ${{ runner.os }}-stack-global-${{ hashFiles('stack.yaml') }}-${{ hashFiles('package.yaml') }}
           restore-keys: |
-            ${{ runner.os }}-build-${{ env.cache-name }}-
-            ${{ runner.os }}-build-
-            ${{ runner.os }}-
+            ${{ runner.os }}-stack-global-
 
-      - name: Prepare build
-        run: |
-          cd ast-processing-app
-          cabal update
+      - name: Cache local
+        uses: actions/cache@v3
+        with:
+          path: .stack-work
+          key: ${{ runner.os }}-stack-work-${{ hashFiles('stack.yaml') }}-${{ hashFiles('package.yaml') }}-${{ hashFiles('**/*.hs') }}
+          restore-keys: |
+            ${{ runner.os }}-stack-work-
 
       - name: Install dependencies
         run: |
-          cabal build --only-dependencies
+          stack build --dependencies-only
 
       - name: Build application
         run: |
-          cabal build
+          stack build
