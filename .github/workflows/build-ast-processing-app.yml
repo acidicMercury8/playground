@@ -1,0 +1,63 @@
+name: 'Build AST processing application'
+
+on:
+  push:
+    branches:
+      - '**'
+    paths-ignore:
+      - '!ast-processing-app/**'
+      - '!.github/workflows/build-ast-processing-app.yml'
+  pull_request:
+    branches:
+      - '**'
+    paths-ignore:
+      - '!ast-processing-app/**'
+      - '!.github/workflows/build-ast-processing-app.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  build-all-cabal:
+    name: 'Building (Cabal)'
+
+    strategy:
+      matrix:
+        system-images: [ ubuntu-latest ]
+
+    runs-on: ${{ matrix.system-images }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Install Haskell
+        uses: actions/setup-haskell@v1
+        with:
+          ghc-version: '9.0.2'
+          cabal-version: '3.6'
+
+      - run: |
+          cd ast-processing-app
+
+      - name: Cache
+        uses: actions/cache@v3
+        env:
+          cache-name: cache-cabal
+        with:
+          path: ~/.cabal
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/*.cabal') }}-${{ hashFiles('**/cabal.project') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+
+      - name: Install dependencies
+        run: |
+          cabal update
+          cabal build --only-dependencies
+
+      - name: Build application
+        run: cabal build all
