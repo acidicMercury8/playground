@@ -18,11 +18,11 @@
 .vscode/*.json   text eol=crlf encoding=utf-8
 
 # Build scripts
-*.props text eol=crlf encoding=UTF-8
+*.props text eol=crlf encoding=utf-8
 
 # Source code files
-*.cs   text eol=crlf encoding=UTF-8
-*.xaml text eol=crlf encoding=UTF-8
+*.cs   text eol=crlf encoding=utf-8
+*.xaml text eol=crlf encoding=utf-8
 
 # Assets
 *.zip binary
