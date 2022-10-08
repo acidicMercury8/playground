@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net6.0</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.ML" Version="1.7.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Compile Include="HouseData.fs" />
+        <Compile Include="HousePrediction.fs" />
+        <Compile Include="Program.fs" />
+    </ItemGroup>
+</Project>
