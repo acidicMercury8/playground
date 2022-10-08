@@ -1,0 +1,36 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net6.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.ML" Version="1.7.1" />
+        <PackageReference Include="Microsoft.ML.FastTree" Version="1.7.1" />
+        <PackageReference Include="Microsoft.ML.LightGbm" Version="1.7.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Update="Datas\test.csv">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </None>
+        <None Update="Datas\train.csv">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </None>
+    </ItemGroup>
+
+    <ItemGroup Label="TitanicModel">
+        <None Include="TitanicModel.consumption.cs">
+            <DependentUpon>TitanicModel.mbconfig</DependentUpon>
+        </None>
+        <None Include="TitanicModel.training.cs">
+            <DependentUpon>TitanicModel.mbconfig</DependentUpon>
+        </None>
+        <None Include="TitanicModel.zip">
+            <DependentUpon>TitanicModel.mbconfig</DependentUpon>
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+    </ItemGroup>
+</Project>

@@ -1,0 +1,28 @@
+# Global attributes for forcing line endings normalization of specific files
+
+* text=auto
+
+# Git configs
+.gitattributes text eol=lf encoding=utf-8
+.gitignore     text eol=lf encoding=utf-8
+
+# Markdown documents
+*.md text eol=crlf encoding=utf-8
+
+# Visual Studio projects and solutions
+*.sln    text eol=crlf encoding=utf-8-bom
+*.csproj text eol=crlf encoding=utf-8
+
+# Visual Studio Code project files
+*.code-workspace text eol=crlf encoding=utf-8
+.vscode/*.json   text eol=crlf encoding=utf-8
+
+# Build scripts
+*.props text eol=crlf encoding=UTF-8
+
+# Source code files
+*.cs   text eol=crlf encoding=UTF-8
+*.xaml text eol=crlf encoding=UTF-8
+
+# Assets
+*.zip binary
