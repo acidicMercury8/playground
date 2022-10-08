@@ -26,11 +26,11 @@ var model = pipeline.Fit(trainingData);
 // Make prediction
 var size = new HouseData() { Size = 2.5F, };
 var price = mlContext.Model
-    .CreatePredictionEngine<HouseData, Prediction>(model)
+    .CreatePredictionEngine<HouseData, HousePrediction>(model)
     .Predict(size);
 
 // Print result
 Console.WriteLine($"Predicted price for size: {size.Size * 1000} sq ft= ${price.Price * 100:C}k");
 
 // Save transformer model and training schema
-mlContext.Model.Save(model, trainingData.Schema, "houseData.zip");
+mlContext.Model.Save(model, trainingData.Schema, "houseSchema.zip");

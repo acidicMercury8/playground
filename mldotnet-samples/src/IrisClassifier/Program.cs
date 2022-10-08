@@ -28,4 +28,4 @@ var prediction = mlContext.Model
 
 Console.WriteLine($"Predicted flower type is: {prediction.PredictedLabels}");
 
-mlContext.Model.Save(model, trainingData.Schema, "irisTrainingSchema.zip");
+mlContext.Model.Save(model, trainingData.Schema, "irisSchema.zip");
