@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32922.545
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F8BC8493-D527-40E5-8EE5-3EC9029FC5A9}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		Directory.Build.props = Directory.Build.props
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleChat.Server", "src\SimpleChat.Server\SimpleChat.Server.csproj", "{34E2033D-C287-43D8-9253-A345B16173EF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleChat.WpfClient", "src\SimpleChat.WpfClient\SimpleChat.WpfClient.csproj", "{C3D8BA38-A968-49C1-AA42-43A392BD8C4D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{34E2033D-C287-43D8-9253-A345B16173EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34E2033D-C287-43D8-9253-A345B16173EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34E2033D-C287-43D8-9253-A345B16173EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34E2033D-C287-43D8-9253-A345B16173EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C3D8BA38-A968-49C1-AA42-43A392BD8C4D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3D8BA38-A968-49C1-AA42-43A392BD8C4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3D8BA38-A968-49C1-AA42-43A392BD8C4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3D8BA38-A968-49C1-AA42-43A392BD8C4D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2858C47B-3223-4074-B29F-EDA1B5314FD6}
+	EndGlobalSection
+EndGlobal
