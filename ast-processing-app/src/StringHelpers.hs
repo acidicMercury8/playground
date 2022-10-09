@@ -5,18 +5,18 @@ module StringHelpers where
 import Data.ByteString (ByteString)
 import Data.ByteString.Short (ShortByteString, toShort)
 import Data.List (intercalate)
+import Data.String (fromString)
 
 import qualified Data.ByteString as BS
-import qualified Data.ByteString.UTF8 as BSU
 
 show' :: Show a => a -> ByteString
-show' = BSU.fromString . show
+show' = fromString . show
 
 showShort :: Show a => a -> ShortByteString
 showShort = toShort . show'
 
 toShort' :: String -> ShortByteString
-toShort' = toShort . BSU.fromString
+toShort' = toShort . fromString
 
 addToLast :: [String] -> String -> [String]
 addToLast [s] str = [s ++ str]
@@ -27,8 +27,8 @@ addToLast _ _ = []
 joinS :: [String] -> String
 joinS = unwords
 
-joinN :: [[Char]] -> [Char]
+joinN :: [String] -> String
 joinN = intercalate "\n"
 
-joinC :: [[Char]] -> [Char]
+joinC :: [String] -> String
 joinC = intercalate ", "
