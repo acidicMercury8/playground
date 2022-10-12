@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32922.545
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MaxTemperatureMonoidFolding", "src\MaxTemperatureMonoidFolding\MaxTemperatureMonoidFolding.csproj", "{3CD708B4-0C9C-494B-8479-B838C80E26E3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MonoidFoldingTest", "src\MonoidFoldingTest\MonoidFoldingTest.csproj", "{3CD708B4-0C9C-494B-8479-B838C80E26E3}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{301615F3-BBA3-44E2-B17E-8F0302F037A8}"
 	ProjectSection(SolutionItems) = preProject
