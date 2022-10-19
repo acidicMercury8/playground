@@ -26,3 +26,5 @@
 
 # Assets
 *.zip binary
+*.ico binary
+*.png binary
