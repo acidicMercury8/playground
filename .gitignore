@@ -14,3 +14,9 @@ obj/
 
 # Node.js cache
 node_modules/
+dist/
+npm-debug.log*
+
+# local environment files
+.env.local
+.env.*.local
