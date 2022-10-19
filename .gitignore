@@ -11,3 +11,6 @@ obj/
 
 # MSTest results
 [Tt]est[Rr]esult*/
+
+# Node.js cache
+node_modules/
