@@ -1,14 +1,19 @@
 using System.Reflection;
 
+using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
+
+using SwaggerWebApplication.Models;
 
 namespace SwaggerWebApplication;
 
 public class Program {
-    public static void Main(string[] args) {
+    public static async Task Main(string[] args) {
         var builder = WebApplication.CreateBuilder(args);
 
         // Add services to the container
+        builder.Services.AddDbContext<TodoContext>(options =>
+            options.UseInMemoryDatabase("Todo"));
         builder.Services.AddControllers();
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen(options => {
@@ -38,11 +43,11 @@ public class Program {
             app.UseSwagger(/*options => {
                 options.SerializeAsV2 = true;
             }*/);
-            app.UseSwaggerUI(options => {
+            app.UseSwaggerUI(/*options => {
                 options.SwaggerEndpoint("/swagger/v1/swagger.json", "v1");
                 options.RoutePrefix = string.Empty;
                 //options.InjectStylesheet("/swagger-ui/custom.css");
-            });
+            }*/);
         }
 
         app.UseHttpsRedirection();
@@ -50,6 +55,12 @@ public class Program {
         app.UseAuthorization();
 
         app.MapControllers();
+
+        using (var serviceScope = app.Services.CreateScope()) {
+            var context = serviceScope.ServiceProvider.GetRequiredService<TodoContext>();
+            context.TodoItems.Add(new TodoItem { Name = "Item #1" });
+            await context.SaveChangesAsync();
+        }
 
         app.Run();
     }

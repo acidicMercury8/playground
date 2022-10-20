@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 using SwaggerWebApplication.Models;
 
@@ -8,57 +9,30 @@ namespace SwaggerWebApplication.Controllers;
 [Route("api/[controller]")]
 [Produces("application/json")]
 public class TodoController : ControllerBase {
-    // GET: api/<TodoController>
+    private readonly TodoContext _context;
+
+    public TodoController(TodoContext context) => _context = context;
+
     [HttpGet]
-    public IEnumerable<string> Get() {
-        return new string[] { "value1", "value2" };
-    }
+    public async Task<List<TodoItem>> Get() =>
+        await _context.TodoItems.ToListAsync();
 
-    //// GET api/<TodoController>/5
-    //[HttpGet("{id}")]
-    //public string Get(int id) {
-    //    return "value";
-    //}
+    [HttpGet("{id}")]
+    public async Task<ActionResult<TodoItem>> Get(long id) {
+        var item = await _context.TodoItems.FindAsync(id);
 
-    //// POST api/<TodoController>
-    //[HttpPost]
-    //public void Post([FromBody] string value) {
-    //}
+        if (item is null) {
+            return NotFound();
+        }
 
-    //// PUT api/<TodoController>/5
-    //[HttpPut("{id}")]
-    //public void Put(int id, [FromBody] string value) {
-    //}
-
-    //// DELETE api/<TodoController>/5
-    //[HttpDelete("{id}")]
-    //public void Delete(int id) {
-    //}
-
-    /// <summary>
-    /// Deletes a specific TodoItem
-    /// </summary>
-    /// <param name="id"></param>
-    /// <returns></returns>
-    [HttpDelete("{id}")]
-    public async Task<IActionResult> Delete(long id) {
-        //var item = await _context.TodoItems.FindAsync(id);
-
-        //if (item is null) {
-        //    return NotFound();
-        //}
-
-        //_context.TodoItems.Remove(item);
-        //await _context.SaveChangesAsync();
-
-        return NoContent();
+        return item;
     }
 
     /// <summary>
-    /// Creates a TodoItem.
+    /// Creates a TodoItem
     /// </summary>
     /// <param name="item"></param>
-    /// <returns>A newly created TodoItem</returns>
+    /// <returns>Created TodoItem</returns>
     /// <remarks>
     /// Sample request:
     ///
@@ -76,9 +50,28 @@ public class TodoController : ControllerBase {
     [ProducesResponseType(StatusCodes.Status201Created)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> Create(TodoItem item) {
-        //_context.TodoItems.Add(item);
-        //await _context.SaveChangesAsync();
+        _context.TodoItems.Add(item);
+        await _context.SaveChangesAsync();
 
         return CreatedAtAction(nameof(Get), new { id = item.Id }, item);
+    }
+
+    /// <summary>
+    /// Deletes a specific TodoItem
+    /// </summary>
+    /// <param name="id"></param>
+    /// <returns></returns>
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> Delete(long id) {
+        var item = await _context.TodoItems.FindAsync(id);
+
+        if (item is null) {
+            return NotFound();
+        }
+
+        _context.TodoItems.Remove(item);
+        await _context.SaveChangesAsync();
+
+        return NoContent();
     }
 }
