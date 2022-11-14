@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: static-web
+  namespace: first-objects
+  labels:
+    name: goweb
+spec:
+  containers:
+    - name: web
+      image: acidicmercury8/goapp:v0.2
+      ports:
+        - name: web
+          containerPort: 8080
+          protocol: TCP
