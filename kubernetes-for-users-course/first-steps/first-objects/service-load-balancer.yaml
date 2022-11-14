@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: first-objects
+  name: my-balancer
+spec:
+  selector:
+    app: goweb
+  ports:
+    - port: 80
+      name: webport
+      targetPort: 8080
+  type: LoadBalancer
+  loadBalancerIP: 10.10.130.145
