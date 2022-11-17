@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: first-cm
+  namespace: data-storage
+data:
+  config.yaml: |
+    colorgood: purple
+    colorbad: yellow
