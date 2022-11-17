@@ -1,0 +1,10 @@
+.vs/
+*.user
+
+bin/
+obj/
+
+*.h
+*.hi
+*.o
+*.so
