@@ -1,0 +1,5 @@
+image: acidicmercury8/goapp:v0.2
+replicas: 3
+secret:
+  name: load-secret
+  password: loadqwerty
