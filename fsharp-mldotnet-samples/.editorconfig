@@ -1,0 +1,23 @@
+# Enable top-most EditorConfig file
+root = true
+
+# Visual Studio solutions
+[*.sln]
+
+# Common settings
+charset = utf-8-bom
+end_of_line = crlf
+indent_size = 4
+indent_style = tab
+insert_final_newline = true
+tab_width = 4
+
+# XML-based files
+[*.{fsproj,props,targets,resx,xaml}]
+
+# Common settings
+charset = utf-8
+end_of_line = crlf
+indent_size = 4
+indent_style = space
+insert_final_newline = true

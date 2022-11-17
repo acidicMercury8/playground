@@ -1,6 +1,6 @@
-# Haskell Playground
+# Playground
 
-Monorepository for research and study _Haskell_ programming language
+Monorepository for research and study different programming languages, technologies and infrastructures
 
 ## Projects
 
