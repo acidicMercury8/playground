@@ -1,0 +1,10 @@
+.vs/
+*.user
+
+bin/
+obj/
+
+node_modules/
+
+*.js
+*.js.map
