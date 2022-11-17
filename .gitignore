@@ -1,0 +1,22 @@
+# Global ignoring of different binaries and another temporary files
+
+# Visual Studio cache and settings
+.vs/
+*.suo
+*.user
+
+# Build results
+bin/
+obj/
+
+# MSTest results
+[Tt]est[Rr]esult*/
+
+# Node.js cache
+node_modules/
+dist/
+npm-debug.log*
+
+# local environment files
+.env.local
+.env.*.local

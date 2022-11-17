@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="TitanicSurvivalRegression.TitanicModel">
+    <Position X="0.5" Y="0.5" Width="2" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Class Name="TitanicSurvivalRegression.TitanicModel.ModelInput">
+        <TypeIdentifier>
+          <NewMemberFileName>src\TitanicSurvivalRegression\TitanicModel.consumption.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Class Name="TitanicSurvivalRegression.TitanicModel.ModelOutput">
+        <TypeIdentifier>
+          <NewMemberFileName>src\TitanicSurvivalRegression\TitanicModel.consumption.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAQAAACAIAAAAAAAAAAAAAAAAAAAAAAgAAQAAg=</HashCode>
+      <FileName>src\TitanicSurvivalRegression\TitanicModel.consumption.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
