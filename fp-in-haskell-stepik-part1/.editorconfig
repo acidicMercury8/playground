@@ -1,0 +1,62 @@
+# Enable top-most EditorConfig file
+root = true
+
+# Git configs
+[{.gitattributes,.gitignore}]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+
+# Markdown documents
+[*.md]
+charset = utf-8
+end_of_line = lf
+indent_size = 2
+indent_style = space
+insert_final_newline = true
+
+# Haskell sources
+[*.hs]
+charset = utf-8
+end_of_line = lf
+indent_size = 2
+indent_style = space
+insert_final_newline = true
+
+# Stack project files
+[{package.yaml,stack.yaml,stack.yaml.lock}]
+charset = utf-8
+end_of_line = lf
+indent_size = 2
+indent_style = space
+insert_final_newline = true
+
+# Cabal project files
+[*.cabal]
+charset = utf-8
+end_of_line = lf
+indent_size = 2
+indent_style = space
+insert_final_newline = true
+
+# GHCi configs
+[.ghci]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+
+# Visual Studio Code project files
+[{*.code-workspace,.vscode/*.json}]
+charset = utf-8
+end_of_line = crlf
+indent_size = 4
+indent_style = space
+insert_final_newline = true
+
+# Code samples
+[*.code]
+charset = utf-8
+end_of_line = lf
+indent_size = 4
+indent_style = space
+insert_final_newline = true
