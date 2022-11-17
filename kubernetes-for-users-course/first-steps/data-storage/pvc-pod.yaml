@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: static-web
+  namespace: data-storage
+  labels:
+    name: goweb
+spec:
+  containers:
+  - name: web
+    image: acidicmercury8/goapp:v0.2
+    resources:
+      limits:
+        memory: "128Mi"
+        cpu: "500m"
+    ports:
+    - name: web
+      containerPort: 8080
+      protocol: TCP
+    volumeMounts:
+    - mountPath: "/data"
+      name: my-volume
+  volumes:
+  - name: my-volume
+    persistentVolumeClaim:
+      claimName: my-pvc

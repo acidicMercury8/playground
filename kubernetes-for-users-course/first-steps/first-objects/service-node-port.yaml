@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: first-objects
+  name: nodeport-goapp-service
+selector:
+  app: goapp
+spec:
+  type: NodePort
+  ports: 
+    - name: http
+      port: 80
+      targetPort: 8080
+      nodePort: 30050
+      protocol: TCP
