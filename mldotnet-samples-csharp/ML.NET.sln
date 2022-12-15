@@ -9,11 +9,18 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
 		Directory.Build.props = Directory.Build.props
+		test-taxifare_webapi.ps1 = test-taxifare_webapi.ps1
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IrisClassifier", "src\IrisClassifier\IrisClassifier.csproj", "{EDEFEADD-3B7F-4A56-8020-2D9155729BC8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TitanicSurvivalRegression", "src\TitanicSurvivalRegression\TitanicSurvivalRegression.csproj", "{648BBCDF-CC2F-4E46-96A2-6B44A236FC56}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TitanicSurvivalRegression", "src\TitanicSurvivalRegression\TitanicSurvivalRegression.csproj", "{648BBCDF-CC2F-4E46-96A2-6B44A236FC56}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaxiFarePrediction", "src\TaxiFarePrediction\TaxiFarePrediction.csproj", "{C5778D4C-64D3-4C3F-9675-A0937E632F68}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaxiFare_Console", "src\TaxiFare_Console\TaxiFare_Console.csproj", "{4C490151-6D74-43AA-848C-13CD795B7746}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaxiFare_WebApi", "src\TaxiFare_WebApi\TaxiFare_WebApi.csproj", "{919B47D3-3660-4D93-8B7D-43EFCBAB1A3E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +40,18 @@ Global
 		{648BBCDF-CC2F-4E46-96A2-6B44A236FC56}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{648BBCDF-CC2F-4E46-96A2-6B44A236FC56}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{648BBCDF-CC2F-4E46-96A2-6B44A236FC56}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5778D4C-64D3-4C3F-9675-A0937E632F68}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5778D4C-64D3-4C3F-9675-A0937E632F68}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5778D4C-64D3-4C3F-9675-A0937E632F68}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5778D4C-64D3-4C3F-9675-A0937E632F68}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C490151-6D74-43AA-848C-13CD795B7746}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C490151-6D74-43AA-848C-13CD795B7746}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C490151-6D74-43AA-848C-13CD795B7746}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C490151-6D74-43AA-848C-13CD795B7746}.Release|Any CPU.Build.0 = Release|Any CPU
+		{919B47D3-3660-4D93-8B7D-43EFCBAB1A3E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{919B47D3-3660-4D93-8B7D-43EFCBAB1A3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{919B47D3-3660-4D93-8B7D-43EFCBAB1A3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{919B47D3-3660-4D93-8B7D-43EFCBAB1A3E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
