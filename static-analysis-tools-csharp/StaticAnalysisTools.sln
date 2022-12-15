@@ -3,17 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleCodeFixAnalyzer", "src\SimpleCodeFixAnalyzer\SimpleCodeFixAnalyzer\SimpleCodeFixAnalyzer.csproj", "{FB79C5AA-34BF-4257-B2D1-8528F44E59E2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleCodeFixAnalyzer", "src\SimpleCodeFixAnalyzer\SimpleCodeFixAnalyzer\SimpleCodeFixAnalyzer.csproj", "{FB79C5AA-34BF-4257-B2D1-8528F44E59E2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleCodeFixAnalyzer.CodeFixes", "src\SimpleCodeFixAnalyzer\SimpleCodeFixAnalyzer.CodeFixes\SimpleCodeFixAnalyzer.CodeFixes.csproj", "{02B8EF19-7180-4DFE-AF7E-EA14DAB4097B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleCodeFixAnalyzer.CodeFixes", "src\SimpleCodeFixAnalyzer\SimpleCodeFixAnalyzer.CodeFixes\SimpleCodeFixAnalyzer.CodeFixes.csproj", "{02B8EF19-7180-4DFE-AF7E-EA14DAB4097B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleCodeFixAnalyzer.Package", "src\SimpleCodeFixAnalyzer\SimpleCodeFixAnalyzer.Package\SimpleCodeFixAnalyzer.Package.csproj", "{595F95CA-47F3-425A-BC63-57B7BB9D7FC3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleCodeFixAnalyzer.Package", "src\SimpleCodeFixAnalyzer\SimpleCodeFixAnalyzer.Package\SimpleCodeFixAnalyzer.Package.csproj", "{595F95CA-47F3-425A-BC63-57B7BB9D7FC3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleCodeFixAnalyzer.Test", "src\SimpleCodeFixAnalyzer\SimpleCodeFixAnalyzer.Test\SimpleCodeFixAnalyzer.Test.csproj", "{10289281-A0E8-4051-95A1-294A1C714A0E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleCodeFixAnalyzer.Test", "src\SimpleCodeFixAnalyzer\SimpleCodeFixAnalyzer.Test\SimpleCodeFixAnalyzer.Test.csproj", "{10289281-A0E8-4051-95A1-294A1C714A0E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleCodeFixAnalyzer.Vsix", "src\SimpleCodeFixAnalyzer\SimpleCodeFixAnalyzer.Vsix\SimpleCodeFixAnalyzer.Vsix.csproj", "{0741E0C7-4CFD-40C2-882E-CFDA64192037}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleCodeFixAnalyzer.Vsix", "src\SimpleCodeFixAnalyzer\SimpleCodeFixAnalyzer.Vsix\SimpleCodeFixAnalyzer.Vsix.csproj", "{0741E0C7-4CFD-40C2-882E-CFDA64192037}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleStandaloneCodeAnalyzer", "src\SimpleStandaloneCodeAnalyzer\SimpleStandaloneCodeAnalyzer.csproj", "{8257D6FC-2575-43E3-AD82-F957EB9270A5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleStandaloneCodeAnalyzer", "src\SimpleStandaloneCodeAnalyzer\SimpleStandaloneCodeAnalyzer.csproj", "{8257D6FC-2575-43E3-AD82-F957EB9270A5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoincideIfStatementBranchesAnalyzer", "src\CoincideIfStatementBranchesAnalyzer\CoincideIfStatementBranchesAnalyzer.csproj", "{6EBA325D-815C-4AAF-9802-DE5BE2E586EB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{8257D6FC-2575-43E3-AD82-F957EB9270A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8257D6FC-2575-43E3-AD82-F957EB9270A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8257D6FC-2575-43E3-AD82-F957EB9270A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6EBA325D-815C-4AAF-9802-DE5BE2E586EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6EBA325D-815C-4AAF-9802-DE5BE2E586EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6EBA325D-815C-4AAF-9802-DE5BE2E586EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6EBA325D-815C-4AAF-9802-DE5BE2E586EB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
