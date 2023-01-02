@@ -7,8 +7,30 @@ import javafx.scene.Group;
 import javafx.scene.text.Text;
 
 public class HelloApplication extends Application {
+    public static void main(String[] args) {
+        System.out.println("Application: main");
+
+        launch();
+    }
+
+    @Override
+    public void init() throws Exception {
+        System.out.println("Application: init");
+        super.init();
+    }
+
     @Override
     public void start(Stage stage) {
+        System.out.println("Application: start");
+
+        var unnamedParameters = getParameters().getUnnamed();
+        var i = 0;
+
+        for (var parameter: unnamedParameters) {
+            i++;
+            System.out.printf("%d - %s \n", i, parameter);
+        }
+
         var text = new Text("Hello, world!");
         text.setLayoutX(80);
         text.setLayoutY(80);
@@ -23,7 +45,9 @@ public class HelloApplication extends Application {
         stage.show();
     }
 
-    public static void main(String[] args) {
-        launch();
+    @Override
+    public void stop() throws Exception {
+        System.out.println("Application: stop");
+        super.stop();
     }
 }
