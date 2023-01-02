@@ -1,11 +1,11 @@
 package com.example.helloworld;
 
 import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.Group;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.layout.FlowPane;
 import javafx.stage.Stage;
 
 public class HelloApplication extends Application {
@@ -15,12 +15,17 @@ public class HelloApplication extends Application {
 
     @Override
     public void start(Stage stage) {
-        var label = new Label("Hello");
-        var button = new Button("Button");
-        var group = new Group(button);
+        var button = new Button();
+        button.setText("Button");
+        button.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                button.setText("Clicked!");
+            }
+        });
 
-        var root = new FlowPane(label, group);
-        var scene = new Scene(root);
+        var group = new Group(button);
+        var scene = new Scene(group);
         stage.setScene(scene);
 
         stage.setTitle("JavaFX Application");
