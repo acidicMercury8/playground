@@ -17,12 +17,7 @@ public class HelloApplication extends Application {
     public void start(Stage stage) {
         var button = new Button();
         button.setText("Button");
-        button.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                button.setText("Clicked!");
-            }
-        });
+        button.setOnAction(actionEvent -> button.setText("Clicked!"));
 
         var group = new Group(button);
         var scene = new Scene(group);
