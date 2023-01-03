@@ -4,6 +4,10 @@
 <?import javafx.scene.Group?>
 <?import javafx.scene.control.Button?>
 
-<Group>
-    <Button text="Hello from FXML" />
+<Group xmlns:fx="http://javafx.com/fxml/1"
+       fx:id="root"
+       fx:controller="com.example.simplefxmlapp.HelloController">
+    <Button fx:id="button"
+            text="Hello from FXML"
+            onAction="#click" />
 </Group>
