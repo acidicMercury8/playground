@@ -1,0 +1,10 @@
+networks:
+  location-network:
+  redis-network:
+  monitoring-network:
+
+services:
+  redis:
+    image: redis
+    networks:
+      - redis-network

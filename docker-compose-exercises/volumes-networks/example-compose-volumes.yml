@@ -1,0 +1,13 @@
+services:
+  nginx:
+    image: nginx
+
+volumes:
+  example-compose-volume:
+    labels:
+      - ru.acidicmercury8.compose.app=volume-example
+  nfsvol:
+    driver_opts:
+      type: "nfs"
+    o: "addr=127.0.0.1,nolock,rw"
+    device: ":/data"

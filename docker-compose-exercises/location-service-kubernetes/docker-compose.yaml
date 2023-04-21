@@ -1,0 +1,64 @@
+version: '3'
+
+networks:
+  location-network:
+  redis-network:
+
+services:
+  redis:
+    image: redis
+    networks:
+      - redis-network
+    ports:
+      - 6379:6379
+
+  location-service:
+    build:
+      context: ../location-service-microservices/location_service/
+    image: location-service:0.1
+    depends_on:
+      - redis
+    environment:
+      - REDIS_HOST=redis:6379
+    ports:
+      - 8080:8080
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - location-network
+      - redis-network
+
+  event-service:
+    build:
+      context: ../location-service-microservices/events_service/
+    image: event-service:0.1
+    environment:
+      - REDIS_HOST=redis:6379
+    depends_on:
+      - redis
+    networks:
+      - redis-network
+
+  task-manager:
+    build:
+      context: ../location-service-microservices/task_manager/
+    image: task-manager:0.1
+    ports:
+      - 8080:8080
+    environment:
+      - REDIS_HOST=redis:6379
+      - LOCATION_HOST=http://location-service:8080
+    depends_on:
+      - redis
+      - location-service
+    networks:
+      - location-network
+      - redis-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5

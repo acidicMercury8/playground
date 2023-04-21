@@ -1,0 +1,68 @@
+volumes:
+  redis-data:
+    labels:
+      - ru.acidicmercury8.compose.app=task-manager
+  backup:
+    labels:
+      - ru.acidicmercury8.compose.app=task-manager
+
+networks:
+  task-manager-pubic-network:
+    labels:
+      - ru.acidicmercury8.compose.app=task-manager
+  redis-network:
+    labels:
+      - ru.acidicmercury8.compose.app=task-manager
+
+services:
+  redis:
+    image: redis
+    labels:
+      - ru.acidicmercury8.compose.app=task-manager
+    entrypoint: ["redis-server", "/usr/local/etc/redis/redis.conf"]
+    ports:
+      - 6379:6379
+    volumes:
+      - ./redis.conf:/usr/local/etc/redis/redis.conf
+      - redis-data:/data
+      - backup:/backup
+    networks:
+      - redis-network
+
+  redis-backup:
+    image: bash
+    depends_on:
+      - redis
+    labels:
+      - ru.acidicmercury8.compose.app=task-manager
+    entrypoint: ["/snapshot-backup.sh"]
+    environment:
+      - BACKUP_PERIOD=10
+    volumes:
+      - ./snapshot-backup.sh:/snapshot-backup.sh
+      - redis-data:/data:ro
+      - backup:/backup
+    networks:
+      - task-manager-pubic-network
+
+  task-manager:
+    build:
+      context: ../task_manager/.
+      labels:
+        - ru.acidicmercury8.compose.app=task-manager
+    image: task-manager:0.1
+    depends_on:
+      - redis
+    ports:
+      - 8080:8080
+    environment:
+      - REDIS_HOST=redis:6379
+    networks:
+      - task-manager-pubic-network
+      - redis-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 5s

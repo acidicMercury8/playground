@@ -1,0 +1,7 @@
+services:
+  prometheus:
+    image: prom/prometheus
+    ports:
+      - 9000:9000
+    volumes:
+      - ./prometheus-config.yaml:/etc/prometheus/prometheus.yml

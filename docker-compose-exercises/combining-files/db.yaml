@@ -1,0 +1,7 @@
+services:
+  db:
+    extends:
+      file: database.yaml
+      service: postgresql
+    environment:
+      - AUTOVACUUM=true
