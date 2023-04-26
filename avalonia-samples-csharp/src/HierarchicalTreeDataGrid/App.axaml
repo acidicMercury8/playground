@@ -1,0 +1,13 @@
+<Application x:Class="HierarchicalTreeDataGrid.App"
+             xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:l="using:HierarchicalTreeDataGrid">
+    <Application.DataTemplates>
+        <l:ViewLocator/>
+    </Application.DataTemplates>
+
+    <Application.Styles>
+        <FluentTheme Mode="Light" />
+        <StyleInclude Source="avares://Avalonia.Controls.TreeDataGrid/Themes/Fluent.axaml" />
+    </Application.Styles>
+</Application>
