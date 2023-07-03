@@ -1,0 +1,17 @@
+{
+    "name": "sqlite-empty-project",
+    "version": "0.1.0",
+    "dependencies": [
+        {
+            "name": "sqlite3",
+            "version>=": "3.40.1"
+        }
+    ],
+    "builtin-baseline": "079419e66be2da46fdff237e1a90b2905e7de920",
+    "overrides": [
+        {
+            "name": "sqlite3",
+            "version": "3.40.1"
+        }
+    ]
+}
