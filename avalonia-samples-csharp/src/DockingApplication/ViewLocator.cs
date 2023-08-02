@@ -5,6 +5,8 @@ using Avalonia.Controls.Templates;
 
 using CommunityToolkit.Mvvm.ComponentModel;
 
+using Dock.Model.Core;
+
 namespace DockingApplication;
 
 public class ViewLocator : IDataTemplate {
@@ -22,6 +24,6 @@ public class ViewLocator : IDataTemplate {
     }
 
     public bool Match(object? data) {
-        return data is ObservableObject;
+        return data is ObservableObject || data is IDockable;
     }
 }

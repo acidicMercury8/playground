@@ -17,8 +17,18 @@ public partial class App : Application {
         if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop) {
             BindingPlugins.DataValidators.RemoveAt(0);
 
-            desktop.MainWindow = new MainWindow {
-                DataContext = new MainViewModel(),
+            var mainViewModel = new MainViewModel();
+            var mainWindow = new MainWindow {
+                DataContext = mainViewModel,
+            };
+            mainWindow.Closing += (_, _) => {
+                mainViewModel.CloseLayout();
+            };
+
+            desktop.MainWindow = mainWindow;
+
+            desktop.Exit += (_, _) => {
+                mainViewModel.CloseLayout();
             };
         }
 

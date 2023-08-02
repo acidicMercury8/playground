@@ -10,12 +10,15 @@
         d:DesignHeight="450"
         Icon="/Assets/avalonia-logo.ico"
         Title="DockingApplication"
-        WindowStartupLocation="CenterScreen">
+        WindowStartupLocation="CenterScreen"
+        UseLayoutRounding="True"
+        RenderOptions.BitmapInterpolationMode="HighQuality"
+        WindowState="Normal">
     <Design.DataContext>
         <vm:MainViewModel/>
     </Design.DataContext>
 
-    <Grid>
-        
-    </Grid>
+    <Panel>
+        <DockControl Layout="{Binding Layout}" />
+    </Panel>
 </Window>

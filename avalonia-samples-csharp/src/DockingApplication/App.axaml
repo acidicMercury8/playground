@@ -8,6 +8,7 @@
     </Application.DataTemplates>
 
     <Application.Styles>
-        <SimpleTheme />
+        <FluentTheme />
+        <StyleInclude Source="avares://Dock.Avalonia/Themes/DockFluentTheme.axaml" />
     </Application.Styles>
 </Application>
