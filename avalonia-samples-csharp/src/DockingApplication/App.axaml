@@ -1,0 +1,13 @@
+<Application x:Class="DockingApplication.App"
+             xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:l="using:DockingApplication"
+             RequestedThemeVariant="Dark">
+    <Application.DataTemplates>
+        <l:ViewLocator/>
+    </Application.DataTemplates>
+
+    <Application.Styles>
+        <SimpleTheme />
+    </Application.Styles>
+</Application>
