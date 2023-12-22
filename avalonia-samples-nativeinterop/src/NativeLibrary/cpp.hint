@@ -1,0 +1,2 @@
+#define NATIVELIBRARY_API __declspec(dllexport)
+#define NATIVELIBRARY_API __declspec(dllimport)
