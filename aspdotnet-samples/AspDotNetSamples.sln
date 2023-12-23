@@ -16,7 +16,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "standalonevueproject-backen
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Swagger", "Swagger", "{D7C60329-3B77-4DC2-908B-F7E559220263}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SwaggerWebApplication", "src\SwaggerWebApplication\SwaggerWebApplication.csproj", "{7A913C48-2F4D-4306-BC83-ABCDAE834FAC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SwaggerWebApplication", "src\SwaggerWebApplication\SwaggerWebApplication.csproj", "{7A913C48-2F4D-4306-BC83-ABCDAE834FAC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthenticationMinimalApi", "src\AuthenticationMinimalApi\AuthenticationMinimalApi.csproj", "{266090D2-11A6-435E-A683-6F9576322AB3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -38,6 +40,10 @@ Global
 		{7A913C48-2F4D-4306-BC83-ABCDAE834FAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7A913C48-2F4D-4306-BC83-ABCDAE834FAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7A913C48-2F4D-4306-BC83-ABCDAE834FAC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{266090D2-11A6-435E-A683-6F9576322AB3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{266090D2-11A6-435E-A683-6F9576322AB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{266090D2-11A6-435E-A683-6F9576322AB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{266090D2-11A6-435E-A683-6F9576322AB3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
