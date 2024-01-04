@@ -1,0 +1,17 @@
+{
+    "name": "ffmpeg-empty-project",
+    "version": "0.1.0",
+    "dependencies": [
+        {
+            "name": "ffmpeg",
+            "version>=": "5.1.2#10"
+        }
+    ],
+    "builtin-baseline": "c67a3059bbdb19799d402085e7323f71e7d68656",
+    "overrides": [
+        {
+            "name": "ffmpeg",
+            "version": "5.1.2#10"
+        }
+    ]
+}
