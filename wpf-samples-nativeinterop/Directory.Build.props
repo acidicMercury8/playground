@@ -1,0 +1,31 @@
+<Project>
+    <PropertyGroup>
+        <ProjectType Condition="'$(MSBuildProjectExtension)' == '.vcxproj'">VisualCppProject</ProjectType>
+        <ProjectType Condition="'$(MSBuildProjectExtension)' == '.csproj'">CSharpProject</ProjectType>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <RootPath>$(MSBuildThisFileDirectory)</RootPath>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(ProjectType)' == 'VisualCppProject'">
+        <NativeOutputPath>$(RootPath)bin\$(Platform)\$(Configuration)\</NativeOutputPath>
+        <NativeIntermediatePath>$(RootPath)obj\$(MSBuildProjectName)\$(Platform)\$(Configuration)\</NativeIntermediatePath>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(ProjectType)' == 'CSharpProject'">
+        <ProjectDir>$(RootPath)</ProjectDir>
+        <BaseIntermediateOutputPath>$(RootPath)\obj\$(MSBuildProjectName)\</BaseIntermediateOutputPath>
+        <BaseOutputPath>$(RootPath)\bin\</BaseOutputPath>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(ProjectType)' == 'CSharpProject' And '$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+        <DebugSymbols>false</DebugSymbols>
+        <DebugType>None</DebugType>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(ProjectType)' == 'VisualCppProject'">
+        <OutDir>$(NativeOutputPath)</OutDir>
+        <IntDir>$(NativeIntermediatePath)</IntDir>
+    </PropertyGroup>
+</Project>

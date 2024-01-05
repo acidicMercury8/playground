@@ -8,7 +8,7 @@ using Avalonia.Platform;
 namespace AvaloniaApplication.ViewModels;
 
 public class NativeControl : NativeControlHost {
-    IntPtr _nativeWindowHandle;
+    private IntPtr _nativeWindowHandle;
 
     internal class NativeImports {
         [DllImport("user32.dll", SetLastError = true)]
