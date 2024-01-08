@@ -1,0 +1,19 @@
+<Project>
+    <PropertyGroup>
+        <ProjectType Condition="'$(MSBuildProjectExtension)' == '.vcxproj'">VisualCppProject</ProjectType>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <RootPath>$(MSBuildThisFileDirectory)</RootPath>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(ProjectType)' == 'VisualCppProject'">
+        <NativeOutputPath>$(RootPath)bin\$(Platform)\$(Configuration)\</NativeOutputPath>
+        <NativeIntermediatePath>$(RootPath)obj\$(MSBuildProjectName)\$(Platform)\$(Configuration)\</NativeIntermediatePath>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(ProjectType)' == 'VisualCppProject'">
+        <OutDir>$(NativeOutputPath)</OutDir>
+        <IntDir>$(NativeIntermediatePath)</IntDir>
+    </PropertyGroup>
+</Project>

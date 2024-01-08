@@ -1,0 +1,53 @@
+# Enable top-most EditorConfig file
+root = true
+
+# Visual Studio solutions
+[*.sln]
+
+# Common settings
+charset = utf-8-bom
+end_of_line = crlf
+indent_size = 4
+indent_style = tab
+insert_final_newline = true
+tab_width = 4
+
+# Visual C++ files
+[*.{vcxproj,filters}]
+
+# Common settings
+charset = utf-8
+end_of_line = crlf
+indent_size = 2
+indent_style = space
+insert_final_newline = false
+
+# XML-based files
+[*.{props,targets}]
+
+# Common settings
+charset = utf-8
+end_of_line = crlf
+indent_size = 4
+indent_style = space
+insert_final_newline = true
+
+# YAML-based files
+[*.{yml,yaml}]
+
+# Common settings
+charset = utf-8
+end_of_line = lf
+indent_size = 2
+indent_style = space
+insert_final_newline = true
+
+# C++ code style settings
+[*.{c,cpp,h,hpp}]
+
+# Common settings
+charset = utf-8
+end_of_line = crlf
+indent_size = 4
+indent_style = space
+insert_final_newline = true
