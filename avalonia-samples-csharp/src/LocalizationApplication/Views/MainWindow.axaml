@@ -1,0 +1,32 @@
+<Window x:Class="LocalizationApplication.Views.MainWindow"
+        x:DataType="vm:MainViewModel"
+        xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:l="using:LocalizationApplication"
+        xmlns:vm="using:LocalizationApplication.ViewModels"
+        mc:Ignorable="d"
+        d:DesignWidth="500"
+        d:DesignHeight="250"
+        Width="500"
+        Height="250"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="LocalizationApplication">
+    <Design.DataContext>
+        <vm:MainViewModel/>
+    </Design.DataContext>
+
+    <Grid RowDefinitions="*,*">
+        <TextBlock Text="{Binding Text}"
+                   Grid.Row="0"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center" />
+        <Button Content=""
+                Command="{Binding ChangeLocaleCommand}"
+                Grid.Row="1"
+                Width="50"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center" />
+    </Grid>
+</Window>
