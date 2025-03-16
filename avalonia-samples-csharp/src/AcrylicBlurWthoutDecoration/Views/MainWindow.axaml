@@ -15,7 +15,11 @@
     CanResize="False"
     ExtendClientAreaToDecorationsHint="True"
     Icon="/Assets/avalonia-logo.ico"
+    PointerMoved="Window_PointerMoved"
+    PointerPressed="Window_PointerPressed"
+    PointerReleased="Window_PointerReleased"
     SystemDecorations="None"
+    Topmost="True"
     TransparencyLevelHint="AcrylicBlur"
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
