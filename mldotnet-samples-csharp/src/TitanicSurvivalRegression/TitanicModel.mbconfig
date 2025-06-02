@@ -4,7 +4,7 @@
   "DataSource": {
     "Type": "TabularFile",
     "Version": 1,
-    "FilePath": "E:\\Projects\\acidicMercury8\\playground-csharp\\mldotnet-samples\\src\\TitanicSurvivalRegression\\Datas\\train.csv",
+    "FilePath": "Datas\\train.csv",
     "Delimiter": ",",
     "DecimalMarker": ".",
     "HasHeader": true,

@@ -3,7 +3,7 @@
   "DataSource": {
     "Type": "TabularFile",
     "Version": 1,
-    "FilePath": "E:\\Projects\\acidicMercury8\\playground\\mldotnet-samples-csharp\\src\\TaxiFarePrediction\\Datas\\taxi-fare-train.csv",
+    "FilePath": "Datas\\taxi-fare-train.csv",
     "Delimiter": ",",
     "DecimalMarker": ".",
     "HasHeader": true,
