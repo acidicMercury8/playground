@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>net472</TargetFramework>
+        <OutputType>WinExe</OutputType>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <UseWindowsForms>true</UseWindowsForms>
+        <StartupObject>ListApp.Program</StartupObject>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="ObjectListView.Official"/>
+    </ItemGroup>
+</Project>
