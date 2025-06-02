@@ -21,6 +21,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AcrylicBlurWthoutDecoration
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomMovableControlsApplication", "src\CustomMovableControlsApplication\CustomMovableControlsApplication.csproj", "{F8A64900-4944-4BF9-B694-8EC0ACAC5C17}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SliderApplication", "src\SliderApplication\SliderApplication.csproj", "{31C34900-6AD8-4C03-9987-D5A8AF7FB3C6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{F8A64900-4944-4BF9-B694-8EC0ACAC5C17}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F8A64900-4944-4BF9-B694-8EC0ACAC5C17}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F8A64900-4944-4BF9-B694-8EC0ACAC5C17}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31C34900-6AD8-4C03-9987-D5A8AF7FB3C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31C34900-6AD8-4C03-9987-D5A8AF7FB3C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31C34900-6AD8-4C03-9987-D5A8AF7FB3C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31C34900-6AD8-4C03-9987-D5A8AF7FB3C6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
