@@ -1,0 +1,12 @@
+*.dockerignore
+Dockerfile*
+
+cache/
+
+*.gitignore
+*.gitattributes
+
+*.bat
+*.cmd
+*.ps1
+*.sh
