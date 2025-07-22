@@ -1,0 +1,15 @@
+{
+  "name": "unpack-cache",
+  "version": "1.0.0",
+  "main": "unpack-cache.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "cacache": "^19.0.1"
+  }
+}
