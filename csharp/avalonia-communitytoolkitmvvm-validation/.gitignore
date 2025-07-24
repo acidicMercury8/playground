@@ -1,0 +1,7 @@
+# User-specific files
+.vs/
+*.user
+
+# Build results
+bin/
+obj/
