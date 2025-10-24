@@ -14,8 +14,13 @@ public partial class MainViewModel : ObservableObject {
 
     [RelayCommand]
     private void ChangeLocale() {
-        LocalResources.Culture = new CultureInfo("ru-RU");
-        Thread.CurrentThread.CurrentUICulture = new CultureInfo("ru-RU");
+        if (LocalResources.Culture.Name == "en-US") {
+            LocalResources.Culture = new CultureInfo("ru-RU");
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo("ru-RU");
+        } else {
+            LocalResources.Culture = new CultureInfo("en-US");
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo("en-US");
+        }
 
         Text = LocalResources.Greetings;
     }
