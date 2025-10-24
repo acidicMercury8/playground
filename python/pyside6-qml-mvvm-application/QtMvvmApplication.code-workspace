@@ -1,0 +1,15 @@
+{
+    "folders": [
+        {
+            "name": "Qt MVVM Application",
+            "path": "."
+        }
+    ],
+
+    "settings": {
+        "files.associations": {
+            "*.py": "python",
+            "*.spec": "python"
+        }
+    }
+}

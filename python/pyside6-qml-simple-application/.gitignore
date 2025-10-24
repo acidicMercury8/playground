@@ -1,0 +1,11 @@
+# System cache
+.DS_Store
+Thumbs.db
+
+# Build results
+build/
+dist/
+
+# Python cache and settings
+.pip/
+.venv/
