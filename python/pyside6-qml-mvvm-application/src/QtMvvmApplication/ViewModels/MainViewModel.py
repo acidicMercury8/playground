@@ -2,7 +2,7 @@ from PySide6.QtCore import QObject, Property, Slot
 
 from Models.TextModel import TextModel
 
-class TextViewModel(QObject):
+class MainViewModel(QObject):
     def __init__(self):
         super().__init__()
         self._model = TextModel()
