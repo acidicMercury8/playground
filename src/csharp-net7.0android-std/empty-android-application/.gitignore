@@ -1,0 +1,12 @@
+# Local ignoring of different binaries and another temporary files
+
+# Visual Studio files
+.vs/
+*.user
+
+# NuGet files
+.nuget/
+
+# Build results
+bin/
+obj/
