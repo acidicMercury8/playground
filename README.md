@@ -8,6 +8,10 @@ Monorepository for research and study different programming languages, technolog
   - 2025
     - `src/cpp-cpp11msvc-std/simple-threading-test`
 
+- C#
+  - 2024
+    `src/csharp-net7.0android-std/empty-android-application`
+
 - JScript.NET
   - 2021
     - `src/jscriptdotnet-net40-std/hello-world-application`
