@@ -4,14 +4,16 @@ Monorepository for research and study different programming languages, technolog
 
 ## Projects
 
-- 2021
-  - JScript.NET
+- С++
+  - 2025
+    - `src/cpp-cpp11msvc-std/simple-threading-test`
+
+- JScript.NET
+  - 2021
     - `src/jscriptdotnet-net40-std/hello-world-application`
 
-- 2025
-  - С++
-    - `src/cpp-cpp11msvc-std/simple-threading-test`
-  - Python
+- Python
+  - 2025
     - `src/python+qml-py3.13-pyside6.10/simple-empty-application`
     - `src/python+qml-py3.13-pyside6.10/simple-mvvm-application`
 
