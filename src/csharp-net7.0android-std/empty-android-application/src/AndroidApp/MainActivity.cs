@@ -5,9 +5,13 @@ using AndroidX.AppCompat.App;
 
 using Xamarin.Essentials;
 
-namespace AndroidApp.Setup;
+namespace AndroidApp;
 
-[Activity(Label = "@string/app_name", MainLauncher = true, Theme = "@style/Theme.Material3.DayNight.NoActionBar")]
+[Activity(
+    Label = "@string/app_name",
+    MainLauncher = true,
+    Theme = "@style/Theme.Material3.DayNight.NoActionBar"
+)]
 public class MainActivity : AppCompatActivity
 {
     private const string TAG = nameof(MainActivity);
@@ -18,7 +22,7 @@ public class MainActivity : AppCompatActivity
 
         Platform.Init(this, savedInstanceState);
 
-        // Set our view from the "main" layout resource
+        // Set our view from the main layout resource.
         SetContentView(Resource.Layout.activity_main);
 
         Log.WriteLine(LogPriority.Info, TAG, "Test log");

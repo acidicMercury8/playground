@@ -26,5 +26,8 @@ global.json text eol=crlf encoding=utf-8
 # XML files
 *.xml text eol=crlf encoding=utf-8
 
+# Text files
+*.txt text eol=crlf encoding=utf-8
+
 # Assets
 *.png binary
