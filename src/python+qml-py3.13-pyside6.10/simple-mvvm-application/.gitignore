@@ -1,0 +1,9 @@
+# Local ignoring of different binaries and another temporary files
+
+# Python cache and settings
+.pip/
+.venv/
+
+# Build results
+build/
+dist/

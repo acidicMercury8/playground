@@ -1,8 +1,8 @@
-# Python PySide6 QML Simple Application
+# Python PySide6 QML MVVM Application
 
 ## Requirements
 
-- Python 3.13+
+- Python 3.13
 
 ## Build
 
@@ -22,5 +22,5 @@ pip install -r requirements.txt --cache-dir .pip
 Pack modules:
 
 ```powershell
-pyinstaller src\QtSimpleApplication\QtSimpleApplication.spec
+pyinstaller src\QtApplication\QtApplication.spec
 ```
