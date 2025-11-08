@@ -12,6 +12,8 @@ namespace SimpleChat.Wpf {
 
         public MainWindow() {
             InitializeComponent();
+
+            ServerTextBox.Text = "http://localhost:5055/chatHub";
         }
 
         private async void ConnectButton_ClickAsync(object sender, RoutedEventArgs e) {

@@ -1,0 +1,15 @@
+[
+    {
+        "Name": "SimpleChat.Server/SimpleChat.WpfClient",
+        "Projects": [
+            {
+                "Path": "src\\SimpleChat.Server\\SimpleChat.Server.csproj",
+                "Action": "Start"
+            },
+            {
+                "Path": "src\\SimpleChat.WpfClient\\SimpleChat.WpfClient.csproj",
+                "Action": "Start"
+            }
+        ]
+    }
+]
