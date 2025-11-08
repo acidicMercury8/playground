@@ -1,0 +1,16 @@
+# Local attributes for forcing line endings normalization of specific files
+
+* text=auto
+
+# Git files
+.gitattributes text eol=lf encoding=utf-8
+.gitignore text eol=lf encoding=utf-8
+
+# EditorConfig files
+.editorconfig text eol=crlf encoding=utf-8
+
+# Batch files
+*.bat text eol=crlf encoding=utf-8
+
+# JScript.NET files
+*.js text eol=crlf encoding=utf-8

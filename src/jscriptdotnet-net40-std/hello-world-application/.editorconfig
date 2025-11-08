@@ -1,0 +1,33 @@
+# Enable top-most EditorConfig file
+root = true
+
+# Git files
+[.{gitattributes,gitignore}]
+charset = utf-8
+end_of_line = lf
+indent_style = tab
+insert_final_newline = true
+
+# EditorConfig files
+[.editorconfig]
+charset = utf-8
+end_of_line = crlf
+indent_size = 4
+indent_style = space
+insert_final_newline = true
+
+# Batch files
+[*.bat]
+charset = utf-8
+end_of_line = crlf
+indent_size = 4
+indent_style = space
+insert_final_newline = true
+
+# JScript.NET files
+[*.js]
+charset = utf-8
+end_of_line = crlf
+indent_size = 4
+indent_style = space
+insert_final_newline = true

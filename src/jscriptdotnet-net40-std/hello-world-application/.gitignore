@@ -1,0 +1,4 @@
+# Local ignoring of different binaries and another temporary files
+
+# Build results
+bin/

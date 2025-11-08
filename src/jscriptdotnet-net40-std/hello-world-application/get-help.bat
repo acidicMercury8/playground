@@ -1,2 +1,2 @@
-%systemroot%\Microsoft.NET\Framework\v4.0.30319\jsc.exe /help
-@pause
+%systemroot%\Microsoft.NET\Framework\v4.0.30319\jsc.exe ^
+    /help
