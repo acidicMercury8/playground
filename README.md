@@ -11,6 +11,9 @@ Monorepository for research and study different programming languages, technolog
 - 2025
   - С++
     - `src/cpp-cpp11msvc-std/simple-threading-test`
+  - Python
+    - `src/python+qml-py3.13-pyside6.10/simple-empty-application`
+    - `src/python+qml-py3.13-pyside6.10/simple-mvvm-application`
 
 ## License
 
