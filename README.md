@@ -10,7 +10,9 @@ Monorepository for research and study different programming languages, technolog
 
 - C#
   - 2024
-    `src/csharp-net7.0android-std/empty-android-application`
+    - `src/csharp-net7.0android-std/empty-android-application`
+  - 2025
+    - `src/csharp-net8.0-std/strip-stacktrace-paths`
 
 - JScript.NET
   - 2021

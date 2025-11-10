@@ -1,0 +1,24 @@
+# Local attributes for forcing line endings normalization of specific files
+
+* text=auto
+
+# Git files
+.gitattributes text eol=lf encoding=utf-8
+.gitignore text eol=lf encoding=utf-8
+
+# EditorConfig files
+.editorconfig text eol=crlf encoding=utf-8
+
+# NuGet files
+NuGet.config text eol=crlf encoding=utf-8
+
+# DotNet files
+global.json text eol=crlf encoding=utf-8
+
+# MSBuild files
+*.sln text eol=crlf encoding=utf-8-bom
+*.csproj text eol=crlf encoding=utf-8
+*.props text eol=crlf encoding=utf-8
+
+# CSharp files
+*.cs text eol=crlf encoding=utf-8
