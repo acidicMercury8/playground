@@ -1,0 +1,72 @@
+# Enable top-most EditorConfig file
+root = true
+
+# Git files
+[.{gitattributes,gitignore}]
+charset = utf-8
+end_of_line = lf
+indent_style = tab
+insert_final_newline = true
+
+# EditorConfig files
+[.editorconfig]
+charset = utf-8
+end_of_line = crlf
+indent_size = 4
+indent_style = space
+insert_final_newline = true
+
+# NuGet files
+[NuGet.config]
+charset = utf-8
+end_of_line = crlf
+indent_size = 4
+indent_style = space
+insert_final_newline = true
+
+# DotNet files
+[global.json]
+charset = utf-8
+end_of_line = crlf
+indent_size = 4
+indent_style = space
+insert_final_newline = true
+
+# MSBuild files
+[*.sln]
+charset = utf-8-bom
+end_of_line = crlf
+indent_size = 4
+indent_style = tab
+insert_final_newline = true
+tab_width = 4
+[*.{csproj,props}]
+charset = utf-8
+end_of_line = crlf
+indent_size = 4
+indent_style = space
+insert_final_newline = true
+
+# CSharp files
+[*.cs]
+charset = utf-8
+end_of_line = crlf
+indent_size = 4
+indent_style = space
+insert_final_newline = true
+
+# Resource files
+[*.resx]
+charset = utf-8
+end_of_line = crlf
+indent_size = 4
+indent_style = space
+insert_final_newline = true
+
+# XML files
+[*.{xml,manifest}]
+charset = utf-8
+end_of_line = crlf
+indent_size = 4
+indent_style = space
+insert_final_newline = true
