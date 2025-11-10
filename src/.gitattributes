@@ -1,0 +1,15 @@
+# Local attributes for forcing line endings normalization of specific files
+
+* text=auto
+
+# Figma files
+*.fig binary
+
+# Pixso files
+*.pix binary
+
+# Sketch files
+*.sketch binary
+
+# PDF files
+*.pdf files
