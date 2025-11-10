@@ -1,0 +1,33 @@
+<UserControl x:Class="AvaloniaApplication.Views.MainView"
+             x:DataType="vm:MainViewModel"
+             xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:vm="using:AvaloniaApplication.ViewModels"
+             mc:Ignorable="d"
+             d:DesignWidth="800"
+             d:DesignHeight="450">
+    <Design.DataContext>
+        <vm:MainViewModel />
+    </Design.DataContext>
+
+    <UserControl.KeyBindings>
+        <KeyBinding
+            Gesture="Alt+D"
+            Command="{Binding AltDCommand}"
+            CommandParameter="{Binding #InputTextBox.Text}" />
+    </UserControl.KeyBindings>
+
+    <StackPanel
+        HorizontalAlignment="Center"
+        VerticalAlignment="Center"
+        Spacing="20">
+        <TextBox x:Name="InputTextBox"
+                 Text="{Binding InputText}"
+                 Width="200"
+                 Watermark="Enter text here" />
+        <TextBlock Text="{Binding Greeting}"
+                   HorizontalAlignment="Center"/>
+    </StackPanel>
+</UserControl>
