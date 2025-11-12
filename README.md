@@ -12,7 +12,10 @@ Monorepository for research and study different programming languages, technolog
   - 2024
     - `src/csharp-net7.0android-std/empty-android-application`
   - 2025
+    - `src/csharp-net8.0-aspnetcore/basic-authentication-webapi`
+    - `src/csharp-net8.0-avalonia/avalonia-keybindings`
     - `src/csharp-net8.0-std/strip-stacktrace-paths`
+    - `src/csharp-net8.0-winforms/winforms-adonet-application`
 
 - JScript.NET
   - 2021

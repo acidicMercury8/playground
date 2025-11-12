@@ -1,0 +1,11 @@
+@BasicAuthenticationWebApi_HostAddress = http://localhost:5031
+
+GET {{BasicAuthenticationWebApi_HostAddress}}/Login/
+Accept: application/json
+
+###
+
+GET {{BasicAuthenticationWebApi_HostAddress}}/WeatherForecast/
+Accept: application/json
+
+###
