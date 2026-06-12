@@ -1,0 +1,4 @@
+rootProject.name = 'untitled'
+
+include 'src:common'
+include 'src:application'

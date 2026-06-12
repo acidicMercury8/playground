@@ -1,0 +1,37 @@
+# Local attributes for forcing line endings normalization of specific files
+
+* text=auto
+
+# Text documents
+*.txt text eol=crlf encoding=utf-8
+
+# Markdown documents
+*.md text eol=crlf encoding=utf-8
+
+# Shell scripts
+*.sh text eol=lf encoding=utf-8
+
+# Batch scripts
+*.bat text eol=crlf encoding=utf-8
+*.cmd text eol=crlf encoding=utf-8
+
+# Java sources
+*.java text eol=lf encoding=utf-8
+*.properties* text eol=lf encoding=utf-8
+
+# Java libraries
+*.jar binary
+
+# Gradle scripts
+*.gradle text eol=lf encoding=utf-8
+gradlew text eol=lf encoding=utf-8
+gradlew.bat text eol=crlf encoding=utf-8
+
+# Git configs
+.gitattributes text eol=lf encoding=utf-8
+.gitignore text eol=lf encoding=utf-8
+.mailmap text eol=lf encoding=utf-8
+
+# IntelliJ IDEA configs
+.idea/**/*.xml text eol=lf encoding=utf-8
+.idea/.name text eol=lf encoding=utf-8

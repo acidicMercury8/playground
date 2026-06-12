@@ -1,0 +1,24 @@
+# Local ignoring of different binaries and another temporary files
+
+# Gradle cache and settings
+.gradle/
+
+# IntelliJ IDEA cache and settings
+.idea/libraries/
+.idea/shelf/
+.idea/modules.xml
+.idea/jarRepositories.xml
+.idea/compiler.xml
+.idea/workspace.xml
+*.iws
+*.iml
+*.ipr
+
+# System cache
+.DS_Store
+Thumbs.db
+
+# Build results
+build/
+run/
+out/
